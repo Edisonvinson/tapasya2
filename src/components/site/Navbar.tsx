@@ -28,14 +28,13 @@ export function Navbar() {
       style={scrolled ? { borderBottom: "1px solid #b89b64" } : undefined}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between h-20 md:h-24">
-        {/* Logo file: transparent background, gold on dark */}
+        {/* Logo: TAPASYA_FINAL_Logo_jpg.jpeg — use for navbar and footer */}
         <a href="#home" className="flex items-center">
           <img
             src="/logo.png"
             alt="Tapasya Spa & Wellness"
-            className={`transition-all duration-500 ${
-              scrolled ? "h-[38px] md:h-[48px]" : "h-[42px] md:h-[56px]"
-            } ${scrolled ? "" : "drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"}`}
+            className="transition-all duration-500 h-[38px] md:h-[48px] bg-white"
+            style={{ borderRadius: 4 }}
           />
         </a>
 

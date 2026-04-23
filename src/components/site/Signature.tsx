@@ -1,6 +1,17 @@
 import { ArrowUpRight } from "lucide-react";
-import { SIGNATURE, waBook } from "@/lib/data";
+import { SIGNATURE, waBook, WHATSAPP_BASE } from "@/lib/data";
 import { useReveal } from "@/hooks/use-reveal";
+
+const CARD_IMAGES: Record<string, string> = {
+  "Tapasya Signature Massage": "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Signature-scaled.jpeg",
+  "Sports Massage / Deep Tissue": "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Sports-scaled.jpeg",
+  "Tapasya Balinese Massage": "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Balinese-scaled.jpeg",
+  "Facials": "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Facial-scaled.jpeg",
+};
+
+function waKnowMore(treatment: string) {
+  return `${WHATSAPP_BASE}?text=${encodeURIComponent(`Hi, I'd like to know more about ${treatment} at Tapasya Spa`)}`;
+}
 
 export function Signature() {
   const ref = useReveal<HTMLDivElement>();
@@ -18,41 +29,88 @@ export function Signature() {
           </p>
         </div>
 
-        <div className="mt-10 grid md:grid-cols-2 gap-5">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-5">
           {SIGNATURE.map((s) => {
             const d = s.durations;
             const dur = d.length > 1 ? `${d[0].min} / ${d[1].min} Min` : `${d[0].min} Min`;
             const price = d.length > 1
               ? `From ₹${d[0].price.toLocaleString()}`
               : `₹${d[0].price.toLocaleString()}`;
+            const img = CARD_IMAGES[s.name];
             return (
               <article
                 key={s.name}
-                className="bg-white group border border-transparent hover:border-gold-light transition-colors rounded-sm overflow-hidden"
+                className="bg-white group border border-transparent hover:border-gold-light transition-colors rounded-sm overflow-hidden flex flex-col"
                 style={{ boxShadow: "0 2px 12px rgba(14,60,44,0.06)" }}
               >
-                {/* Use essential oil bottle image, hot stone image, or bamboo illustration here — no body/skin photos */}
                 <div
-                  className="aspect-[16/9]"
-                  style={{ background: "linear-gradient(135deg, #f2ede4 0%, #b89b64 100%)" }}
-                />
-                <div className="p-7">
-                  <div className="flex items-center gap-3 text-[12px] tracking-[0.18em] uppercase font-semibold" style={{ color: "#ab8c4a" }}>
+                  className="overflow-hidden"
+                  style={{ aspectRatio: "3 / 4", borderRadius: "4px 4px 0 0" }}
+                >
+                  <img
+                    src={img}
+                    alt={s.name}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                  />
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase font-semibold flex-wrap" style={{ color: "#ab8c4a" }}>
                     <span>{dur}</span>
                     <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "#ab8c4a" }} />
-                    <span className="text-[16px] font-bold tracking-normal">{price}</span>
+                    <span className="text-[15px] font-bold tracking-normal">{price}</span>
                   </div>
-                  <h3 className="font-serif text-[20px] mt-3 font-semibold" style={{ color: "#0e3c2c" }}>{s.name}</h3>
-                  <p className="mt-3 text-[15px] leading-[1.65]" style={{ color: "#4a4a3a" }}>{s.desc}</p>
-                  <a
-                    href={waBook(s.name)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 mt-5 text-[15px] font-semibold border-b pb-1 transition-colors"
-                    style={{ color: "#0e3c2c", borderColor: "#ab8c4a" }}
-                  >
-                    Book Now <ArrowUpRight size={16} />
-                  </a>
+                  <h3 className="font-serif text-[19px] mt-3 font-semibold" style={{ color: "#0e3c2c" }}>{s.name}</h3>
+                  <p className="mt-2 text-[14px] leading-[1.6] flex-1" style={{ color: "#4a4a3a" }}>{s.desc}</p>
+
+                  <div className="flex gap-2.5 mt-3.5 flex-wrap">
+                    <a
+                      href={waKnowMore(s.name)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-center transition"
+                      style={{
+                        flex: 1,
+                        minWidth: 100,
+                        padding: "9px 14px",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        borderRadius: 3,
+                        border: "1.5px solid #ab8c4a",
+                        color: "#ab8c4a",
+                        background: "transparent",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#ab8c4a";
+                        e.currentTarget.style.color = "#ffffff";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.color = "#ab8c4a";
+                      }}
+                    >
+                      Know More
+                    </a>
+                    <a
+                      href={waBook(s.name)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-1 transition"
+                      style={{
+                        flex: 1,
+                        minWidth: 100,
+                        padding: "9px 14px",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        borderRadius: 3,
+                        background: "#ab8c4a",
+                        color: "#ffffff",
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#8a6f31")}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "#ab8c4a")}
+                    >
+                      Book Now <ArrowUpRight size={14} />
+                    </a>
+                  </div>
                 </div>
               </article>
             );

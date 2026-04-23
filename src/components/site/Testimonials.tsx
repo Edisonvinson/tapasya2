@@ -1,57 +1,196 @@
-import { Star } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Star, User } from "lucide-react";
 import { TESTIMONIALS, GOOGLE_REVIEWS_URL } from "@/lib/data";
 import { useReveal } from "@/hooks/use-reveal";
 
 export function Testimonials() {
   const ref = useReveal<HTMLDivElement>();
-  const loop = [...TESTIMONIALS, ...TESTIMONIALS];
+  const [active, setActive] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    const m = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(m.matches);
+    update();
+    m.addEventListener("change", update);
+    return () => m.removeEventListener("change", update);
+  }, []);
+
+  const total = TESTIMONIALS.length;
+  const next = () => setActive((v) => (v + 1) % total);
+  const prev = () => setActive((v) => (v - 1 + total) % total);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (dx > 40) prev();
+    else if (dx < -40) next();
+    touchStartX.current = null;
+  };
+
+  // Card width on desktop ~ 50% so two cards visible (center fully + side peeking)
+  const cardBasis = isDesktop ? 50 : 100;
+  const offset = isDesktop
+    ? -(active * cardBasis) + 25 // center the active card
+    : -(active * 100);
+
   return (
-    <section id="reviews" className="py-14 md:py-14 overflow-hidden" style={{ backgroundColor: "#f2ede4" }}>
+    <section id="reviews" className="py-14 md:py-14 overflow-hidden" style={{ backgroundColor: "#f5f1eb" }}>
       <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow">What Our Guests Say</span>
+          <span className="eyebrow" style={{ color: "#ab8c4a" }}>What Our Guests Say</span>
           <h2 className="font-serif text-[28px] md:text-[40px] mt-2 font-bold" style={{ color: "#0e3c2c" }}>
             Trusted by Travelers in Thekkady
           </h2>
-          <p className="mt-3 text-[17px] leading-[1.75]" style={{ color: "#1a1a1a" }}>
+          <p className="mt-3 text-[17px] leading-[1.75]" style={{ color: "#4a4a3a" }}>
             Real words from real guests — sourced from our Google Reviews.
           </p>
         </div>
       </div>
 
-      <div className="mt-10 relative">
-        <div className="flex gap-4 animate-[scroll_50s_linear_infinite] hover:[animation-play-state:paused]">
-          {loop.map((t, i) => (
-            <article
+      <div className="mt-10 relative max-w-7xl mx-auto">
+        {/* Desktop arrows */}
+        <button
+          onClick={prev}
+          aria-label="Previous testimonial"
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 items-center justify-center transition"
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: "50%",
+            background: "rgba(14,60,44,0.08)",
+            border: "1px solid #ab8c4a",
+            color: "#ab8c4a",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#ab8c4a";
+            e.currentTarget.style.color = "#ffffff";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "rgba(14,60,44,0.08)";
+            e.currentTarget.style.color = "#ab8c4a";
+          }}
+        >
+          <ChevronLeft size={22} />
+        </button>
+        <button
+          onClick={next}
+          aria-label="Next testimonial"
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 items-center justify-center transition"
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: "50%",
+            background: "rgba(14,60,44,0.08)",
+            border: "1px solid #ab8c4a",
+            color: "#ab8c4a",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#ab8c4a";
+            e.currentTarget.style.color = "#ffffff";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "rgba(14,60,44,0.08)";
+            e.currentTarget.style.color = "#ab8c4a";
+          }}
+        >
+          <ChevronRight size={22} />
+        </button>
+
+        <div
+          className="overflow-hidden px-4 md:px-16"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(${offset}%)` }}
+          >
+            {TESTIMONIALS.map((t, i) => (
+              <div
+                key={i}
+                className="shrink-0 px-2 md:px-3"
+                style={{ flex: `0 0 ${cardBasis}%` }}
+              >
+                <article
+                  className="mx-auto relative"
+                  style={{
+                    background: "#ffffff",
+                    borderRadius: 8,
+                    padding: "36px 32px 28px",
+                    boxShadow: "0 2px 16px rgba(14,60,44,0.07)",
+                    maxWidth: 600,
+                  }}
+                >
+                  <div
+                    className="font-serif"
+                    style={{ color: "#ab8c4a", fontSize: 72, lineHeight: 0.8 }}
+                  >
+                    “
+                  </div>
+                  <p
+                    className="italic"
+                    style={{
+                      fontSize: 17,
+                      lineHeight: 1.8,
+                      color: "#1a1a1a",
+                      marginTop: 8,
+                    }}
+                  >
+                    {t.text}
+                  </p>
+                  <div className="flex items-center gap-4 mt-6">
+                    <div
+                      className="flex items-center justify-center shrink-0"
+                      style={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: "50%",
+                        background: "#e0d5c5",
+                        color: "#9a9085",
+                      }}
+                    >
+                      <User size={24} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span style={{ fontWeight: 700, color: "#0e3c2c", fontSize: 16 }}>
+                        {t.name}
+                      </span>
+                      <div className="flex gap-0.5 mt-0.5" style={{ color: "#ab8c4a" }}>
+                        {Array.from({ length: 5 }).map((_, k) => (
+                          <Star key={k} size={14} fill="currentColor" strokeWidth={0} />
+                        ))}
+                      </div>
+                      <span style={{ color: "#7e7038", fontSize: 12, marginTop: 2 }}>
+                        via Google Reviews
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {TESTIMONIALS.map((_, i) => (
+            <button
               key={i}
-              className="shrink-0 w-[88vw] sm:w-[420px] p-7 rounded-sm"
+              onClick={() => setActive(i)}
+              aria-label={`Go to review ${i + 1}`}
               style={{
-                backgroundColor: "#ffffff",
-                borderLeft: "3px solid #ab8c4a",
-                boxShadow: "0 2px 12px rgba(14,60,44,0.08)",
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                background: active === i ? "#ab8c4a" : "rgba(184,155,100,0.4)",
+                transition: "background 0.2s",
               }}
-            >
-              <div className="flex gap-1" style={{ color: "#ab8c4a" }}>
-                {Array.from({ length: 5 }).map((_, k) => (
-                  <Star key={k} size={16} fill="currentColor" strokeWidth={0} />
-                ))}
-              </div>
-              <p className="mt-4 leading-[1.65] text-[15px] italic line-clamp-[8]" style={{ color: "#1a1a1a" }}>
-                "{t.text}"
-              </p>
-              <div className="mt-5 pt-4 border-t" style={{ borderColor: "#e6dfd1" }}>
-                <p className="font-bold text-[16px]" style={{ color: "#0e3c2c" }}>{t.name}</p>
-                <p className="text-[13px] mt-1" style={{ color: "#7e7038" }}>{t.meta}</p>
-                <div className="flex items-center justify-between mt-3">
-                  <span className="text-[11px] uppercase tracking-[0.18em]" style={{ color: "#4a4a3a" }}>
-                    {t.when}
-                  </span>
-                  <span className="text-[11px] uppercase tracking-[0.14em] font-semibold" style={{ color: "#ab8c4a" }}>
-                    via Google Reviews
-                  </span>
-                </div>
-              </div>
-            </article>
+            />
           ))}
         </div>
       </div>
@@ -75,13 +214,6 @@ export function Testimonials() {
           Read All Reviews on Google →
         </a>
       </div>
-
-      <style>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-50% - 8px)); }
-        }
-      `}</style>
     </section>
   );
 }

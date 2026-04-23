@@ -71,35 +71,31 @@ export function WhatsAppWidget() {
 
   return (
     <>
-      {/* Panel */}
       <div
         className={`fixed z-50 bottom-0 right-0 md:bottom-24 md:right-6 w-full md:w-[380px] origin-bottom-right transition-all duration-300 ${
-          open
-            ? "opacity-100 scale-100 pointer-events-auto"
-            : "opacity-0 scale-95 pointer-events-none"
+          open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
-        <div className="bg-cream md:rounded-2xl rounded-t-2xl shadow-2xl overflow-hidden border border-border flex flex-col max-h-[80vh]">
-          <div className="bg-charcoal text-cream p-4 flex items-center gap-3">
-            <img src="/logo.png" alt="" className="h-8 brightness-0 invert" />
+        <div className="md:rounded-2xl rounded-t-2xl shadow-2xl overflow-hidden border flex flex-col max-h-[80vh]" style={{ backgroundColor: "#faf7f2", borderColor: "#b89b64" }}>
+          <div className="p-4 flex items-center gap-3" style={{ backgroundColor: "#0e3c2c", color: "#ffffff" }}>
+            <img src="/logo.png" alt="" className="h-[28px] w-auto" />
             <div className="flex-1">
-              <p className="font-serif text-base leading-tight">Tapasya Spa & Wellness</p>
-              <p className="text-[11px] text-cream/70 flex items-center gap-1.5">
+              <p className="font-serif text-[16px] leading-tight text-white">Tapasya Spa & Wellness</p>
+              <p className="text-[11px] text-white/75 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
                 Typically replies instantly
               </p>
             </div>
-            <button
-              onClick={() => setOpen(false)}
-              className="text-cream/70 hover:text-cream"
-              aria-label="Close"
-            >
+            <button onClick={() => setOpen(false)} className="text-white/75 hover:text-white" aria-label="Close">
               <X size={18} />
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><circle cx=%221%22 cy=%221%22 r=%221%22 fill=%22%23e8e2d6%22/></svg>')]">
-            <div className="bg-white rounded-2xl rounded-tl-sm p-3.5 text-sm text-charcoal max-w-[85%] shadow-sm">
+          <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: "#faf7f2" }}>
+            <div
+              className="bg-white rounded-2xl rounded-tl-sm p-3.5 text-[14px] max-w-[85%] shadow-sm"
+              style={{ color: "#1a1a1a", borderLeft: "3px solid #ab8c4a" }}
+            >
               👋 Hi! Welcome to Tapasya Spa. How can we help you today?
             </div>
 
@@ -109,7 +105,16 @@ export function WhatsAppWidget() {
                   <button
                     key={i}
                     onClick={() => setActive(i)}
-                    className="block w-full text-left bg-white border border-border rounded-full px-4 py-2.5 text-sm text-charcoal hover:border-gold hover:text-gold transition"
+                    className="block w-full text-left rounded-full px-4 py-2.5 text-[14px] border transition"
+                    style={{ backgroundColor: "#f2ede4", borderColor: "#ab8c4a", color: "#0e3c2c" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ab8c4a";
+                      e.currentTarget.style.color = "#ffffff";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#f2ede4";
+                      e.currentTarget.style.color = "#0e3c2c";
+                    }}
                   >
                     {q.q}
                   </button>
@@ -117,23 +122,31 @@ export function WhatsAppWidget() {
               </div>
             ) : (
               <>
-                <div className="mt-3 ml-auto bg-gold/15 rounded-2xl rounded-tr-sm p-3.5 text-sm text-charcoal max-w-[85%]">
+                <div
+                  className="mt-3 ml-auto rounded-2xl rounded-tr-sm p-3.5 text-[14px] max-w-[85%]"
+                  style={{ backgroundColor: "rgba(171,140,74,0.15)", color: "#1a1a1a" }}
+                >
                   {QUICK[active].q}
                 </div>
-                <div className="mt-3 bg-white rounded-2xl rounded-tl-sm p-3.5 text-sm text-charcoal max-w-[88%] shadow-sm">
+                <div
+                  className="mt-3 rounded-2xl rounded-tl-sm p-3.5 text-[14px] max-w-[88%] shadow-sm"
+                  style={{ backgroundColor: "#f2ede4", color: "#1a1a1a", borderLeft: "3px solid #ab8c4a" }}
+                >
                   {QUICK[active].reply}
                   <a
                     href={QUICK[active].cta.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="block mt-3 text-center bg-[#25D366] text-white text-xs uppercase tracking-wider py-2.5 rounded-md hover:bg-[#20bd5a]"
+                    className="block mt-3 text-center text-white text-[13px] font-semibold uppercase tracking-[0.06em] py-2.5 rounded-sm hover:opacity-90"
+                    style={{ backgroundColor: "#ab8c4a" }}
                   >
                     {QUICK[active].cta.label}
                   </a>
                 </div>
                 <button
                   onClick={() => setActive(null)}
-                  className="mt-3 inline-flex items-center gap-1 text-xs text-warm-grey hover:text-gold"
+                  className="mt-3 inline-flex items-center gap-1 text-[13px] hover:underline"
+                  style={{ color: "#7e7038" }}
                 >
                   <ArrowLeft size={12} /> Back to questions
                 </button>
@@ -145,14 +158,13 @@ export function WhatsAppWidget() {
             href={WHATSAPP_BASE}
             target="_blank"
             rel="noreferrer"
-            className="block bg-[#25D366] text-white text-center text-sm py-3.5 hover:bg-[#20bd5a] transition"
+            className="block bg-[#25D366] text-white text-center text-[14px] font-semibold py-3.5 hover:bg-[#20bd5a] transition"
           >
             Chat directly on WhatsApp →
           </a>
         </div>
       </div>
 
-      {/* Floating button */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label="Open WhatsApp chat"

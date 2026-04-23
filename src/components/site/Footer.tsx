@@ -41,7 +41,7 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="text-[12px] uppercase tracking-[0.22em] font-semibold mb-5" style={{ color: "#b89b64" }}>Treatments</p>
+          <p className="text-[12px] uppercase tracking-[0.22em] font-semibold mb-5" style={{ color: "#b89b64" }}>Services</p>
           <ul className="space-y-2 text-[14px]">
             {ALL_SERVICES.map((s) => (
               <li key={s.name}>

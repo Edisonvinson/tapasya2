@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import { ALL_SERVICES, waBook, WHATSAPP_BASE } from "@/lib/data";
+import { ALL_SERVICES, waBook } from "@/lib/data";
 import { useReveal } from "@/hooks/use-reveal";
 
 function priceLine(d: { min: number; price: number }[]) {
@@ -75,51 +75,6 @@ export function Services() {
           })}
         </div>
 
-        {/* Special package */}
-        <div
-          className="mt-10 p-8 md:p-10 relative rounded-sm border text-white"
-          style={{ backgroundColor: "#314c30", borderColor: "#b89b64" }}
-        >
-          <span className="text-[12px] uppercase tracking-[0.18em] font-semibold" style={{ color: "#b89b64" }}>
-            Kumily Vacation Exclusive
-          </span>
-          <h3 className="font-serif text-[28px] md:text-[36px] mt-2 text-white font-bold">
-            The Ultimate Spa Holiday
-          </h3>
-          <p className="mt-3 text-[16px] leading-[1.7] max-w-2xl text-white/90">
-            Choose a massage (Hot Stone or Warm Bamboo) paired with a skin treatment (Almond, Salt,
-            or Sugar Scrub) for a complete restorative session.
-          </p>
-
-          <div className="grid sm:grid-cols-2 gap-5 mt-7">
-            <div className="p-6 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
-              <p className="text-[12px] uppercase tracking-[0.2em] font-semibold" style={{ color: "#b89b64" }}>Single</p>
-              <p className="font-serif text-[24px] mt-2 text-white">
-                120 min — ₹5,000
-                <br />
-                <span className="text-white/70 text-[18px]">150 min — ₹6,000</span>
-              </p>
-            </div>
-            <div className="p-6 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
-              <p className="text-[12px] uppercase tracking-[0.2em] font-semibold" style={{ color: "#b89b64" }}>Couple</p>
-              <p className="font-serif text-[24px] mt-2 text-white">
-                120 min — ₹9,500
-                <br />
-                <span className="text-white/70 text-[18px]">150 min — ₹12,000</span>
-              </p>
-            </div>
-          </div>
-
-          <a
-            href={`${WHATSAPP_BASE}?text=${encodeURIComponent("Hi, I'd like to book the Kumily Vacation Exclusive package")}`}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center mt-7 px-7 py-3 text-white text-[14px] font-semibold uppercase tracking-[0.06em] rounded-sm hover:opacity-90 transition"
-            style={{ backgroundColor: "#ab8c4a" }}
-          >
-            Book This Package →
-          </a>
-        </div>
       </div>
     </section>
   );

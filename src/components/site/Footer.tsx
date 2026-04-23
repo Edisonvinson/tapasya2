@@ -5,10 +5,19 @@ export function Footer() {
   return (
     <footer className="text-white" style={{ backgroundColor: "#0e3c2c" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-        <div>
-          {/* Logo file: transparent background, gold on dark */}
-          <img src="/logo.png" alt="Tapasya Spa & Wellness" className="h-[52px] w-auto" />
-          <p className="mt-5 text-[15px] leading-relaxed text-white/85">
+        <div className="flex flex-col items-center md:items-start">
+          {/* Logo: TAPASYA_FINAL_Logo_jpg.jpeg — use for navbar and footer */}
+          <div
+            style={{
+              background: "#ffffff",
+              padding: 6,
+              borderRadius: 12,
+              display: "inline-block",
+            }}
+          >
+            <img src="/logo.png" alt="Tapasya Spa & Wellness" className="h-[52px] w-auto block" />
+          </div>
+          <p className="mt-5 text-[15px] leading-relaxed text-white/85 text-center md:text-left">
             Kumily's trusted spa for Western, Ayurvedic & Asian therapies.
           </p>
         </div>

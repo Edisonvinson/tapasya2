@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { SIGNATURE, waBook, WHATSAPP_BASE } from "@/lib/data";
+import { SIGNATURE, waBook, slugify } from "@/lib/data";
 import { useReveal } from "@/hooks/use-reveal";
 
 const CARD_IMAGES: Record<string, string> = {
@@ -9,8 +9,16 @@ const CARD_IMAGES: Record<string, string> = {
   "Facials": "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Facial-scaled.jpeg",
 };
 
-function waKnowMore(treatment: string) {
-  return `${WHATSAPP_BASE}?text=${encodeURIComponent(`Hi, I'd like to know more about ${treatment} at Tapasya Spa`)}`;
+// Map signature card names → slugs on the /services page
+const KNOW_MORE_SLUG: Record<string, string> = {
+  "Tapasya Signature Massage": slugify("Tapasya Signature Massage"),
+  "Sports Massage / Deep Tissue": slugify("Sports Massage / Deep Tissue"),
+  "Tapasya Balinese Massage": slugify("Tapasya Balinese Massage"),
+  "Facials": slugify("Advanced Radiance Facial"),
+};
+
+function knowMoreHref(name: string) {
+  return `/services#${KNOW_MORE_SLUG[name] ?? slugify(name)}`;
 }
 
 export function Signature() {
@@ -64,9 +72,7 @@ export function Signature() {
 
                   <div className="flex gap-2.5 mt-3.5 flex-wrap">
                     <a
-                      href={waKnowMore(s.name)}
-                      target="_blank"
-                      rel="noreferrer"
+                      href={knowMoreHref(s.name)}
                       className="text-center transition"
                       style={{
                         flex: 1,
@@ -119,7 +125,7 @@ export function Signature() {
 
         <div className="text-center mt-10">
           <a
-            href="#services"
+            href="/services"
             className="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] font-semibold border-b pb-1"
             style={{ color: "#ab8c4a", borderColor: "#ab8c4a" }}
           >

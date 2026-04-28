@@ -3,10 +3,10 @@ import { Menu, X } from "lucide-react";
 import { WHATSAPP_BASE } from "@/lib/data";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About Us", href: "/#about" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -29,7 +29,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between h-20 md:h-24">
         {/* Logo: TAPASYA_FINAL_Logo_jpg.jpeg — use for navbar and footer */}
-        <a href="#home" className="flex items-center">
+        <a href="/#home" className="flex items-center">
           <img
             src="/logo.png"
             alt="Tapasya Spa & Wellness"

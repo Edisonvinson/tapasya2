@@ -1,9 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppWidget } from "@/components/site/WhatsAppWidget";
 import { waBook, slugify } from "@/lib/data";
+
+// Curated luxury spa imagery (Unsplash) — one per treatment
+const TREATMENT_IMAGES: Record<string, string> = {
+  "tapasya-signature-massage":
+    "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+  "tapasya-balinese-massage":
+    "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1200&q=80",
+  "hawaiian-lomi-lomi-massage":
+    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+  "sports-massage-deep-tissue":
+    "https://images.unsplash.com/photo-1611073615452-4889ad328ad5?auto=format&fit=crop&w=1200&q=80",
+  "traditional-thai-massage":
+    "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=80",
+  "swedish-massage":
+    "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80",
+  "hot-stone-healing-therapy":
+    "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1200&q=80",
+  "warm-bamboo-therapy":
+    "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=1200&q=80",
+  "aromatherapy-healing-massage":
+    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
+  "tapasya-foot-fix-reflexology":
+    "https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&q=80",
+  "tapasya-body-scrub-and-wrap":
+    "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80",
+  "advanced-radiance-facial":
+    "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80",
+};
+
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80";
 
 export const Route = createFileRoute("/services")({
   head: () => ({

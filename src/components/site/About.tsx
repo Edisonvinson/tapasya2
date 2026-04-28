@@ -54,6 +54,8 @@ export function About() {
             src={aboutIllustration}
             alt=""
             aria-hidden
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-contain pointer-events-none"
             style={{ opacity: 0.18 }}
           />

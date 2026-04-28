@@ -36,7 +36,7 @@ export function Navbar() {
             width={144}
             height={48}
             decoding="async"
-            className="transition-all duration-500 h-[38px] md:h-[48px] w-auto bg-white"
+            className="transition-all duration-500 h-[56px] md:h-[48px] w-auto bg-white"
             style={{ borderRadius: 4 }}
           />
         </a>

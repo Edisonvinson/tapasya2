@@ -33,7 +33,10 @@ export function Navbar() {
           <img
             src="/logo.png"
             alt="Tapasya Spa & Wellness"
-            className="transition-all duration-500 h-[38px] md:h-[48px] bg-white"
+            width={144}
+            height={48}
+            decoding="async"
+            className="transition-all duration-500 h-[38px] md:h-[48px] w-auto bg-white"
             style={{ borderRadius: 4 }}
           />
         </a>

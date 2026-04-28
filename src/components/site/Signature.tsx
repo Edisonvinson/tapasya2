@@ -125,7 +125,7 @@ export function Signature() {
 
         <div className="text-center mt-10">
           <a
-            href="#services"
+            href="/services"
             className="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] font-semibold border-b pb-1"
             style={{ color: "#ab8c4a", borderColor: "#ab8c4a" }}
           >

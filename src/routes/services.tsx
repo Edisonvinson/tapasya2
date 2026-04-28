@@ -406,10 +406,10 @@ function TreatmentCard({
           {t.priceLine}
         </p>
 
-        {/* Description — truncated on mobile, full on desktop */}
+        {/* Description — truncated until expanded on all viewports */}
         <p
           style={{ color: "#4a4a3a", fontSize: 15, lineHeight: 1.75 }}
-          className={`mt-4 mb-2 md:!line-clamp-none ${expanded ? "" : "line-clamp-3"} md:line-clamp-none`}
+          className={`mt-4 mb-2 ${expanded ? "" : "line-clamp-3"}`}
         >
           {t.description}
         </p>
@@ -417,7 +417,7 @@ function TreatmentCard({
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="md:hidden self-start mb-4"
+          className="self-start mb-4"
           style={{
             color: "#ab8c4a",
             fontSize: 12,
@@ -430,11 +430,11 @@ function TreatmentCard({
           {expanded ? "Show Less −" : "Show More +"}
         </button>
 
-        {/* Details — visible on desktop always; on mobile only when expanded */}
+        {/* Details — only when expanded, on all viewports */}
         <div
           className={`overflow-hidden transition-all duration-300 ${
             expanded ? "max-h-[2000px]" : "max-h-0"
-          } md:max-h-none`}
+          }`}
         >
           <dl className="grid gap-3 mb-6 mt-2 md:mt-3">
             {t.inclusions && <DetailRow label="Inclusions" value={t.inclusions} />}

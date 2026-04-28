@@ -78,7 +78,7 @@ export function WhatsAppWidget() {
       >
         <div className="md:rounded-2xl rounded-t-2xl shadow-2xl overflow-hidden border flex flex-col max-h-[80vh]" style={{ backgroundColor: "#faf7f2", borderColor: "#b89b64" }}>
           <div className="p-4 flex items-center gap-3" style={{ backgroundColor: "#0e3c2c", color: "#ffffff" }}>
-            <img src="/logo.png" alt="" className="h-[28px] w-auto" />
+            <img src="/logo.png" alt="" loading="lazy" decoding="async" className="h-[28px] w-auto" />
             <div className="flex-1">
               <p className="font-serif text-[16px] leading-tight text-white">Tapasya Spa & Wellness</p>
               <p className="text-[11px] text-white/75 flex items-center gap-1.5">

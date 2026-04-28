@@ -1,5 +1,5 @@
 import { Instagram, Facebook, MessageCircle, Mail } from "lucide-react";
-import { ALL_SERVICES, WHATSAPP_BASE } from "@/lib/data";
+import { ALL_SERVICES, WHATSAPP_BASE, slugify } from "@/lib/data";
 
 export function Footer() {
   const firstHalf = ALL_SERVICES.slice(0, 6);

@@ -5,6 +5,23 @@ export function Footer() {
   const firstHalf = ALL_SERVICES.slice(0, 6);
   const secondHalf = ALL_SERVICES.slice(6, 12);
 
+  // Map footer service names → exact treatment slugs on /services page
+  const NAME_TO_SLUG: Record<string, string> = {
+    "Tapasya Signature Massage": slugify("Tapasya Signature Massage"),
+    "Sports Massage / Deep Tissue": slugify("Sports Massage / Deep Tissue"),
+    "Thai Traditional Massage": slugify("Traditional Thai Massage"),
+    "Tapasya Body Scrub & Wrap": slugify("Tapasya Body Scrub & Wrap"),
+    "Swedish Massage": slugify("Swedish Massage"),
+    "Tapasya Balinese": slugify("Tapasya Balinese Massage"),
+    "Tapasya Foot Fix": slugify("Tapasya Foot Fix (Reflexology)"),
+    "Hot Stone Massage": slugify("Hot Stone Healing Therapy"),
+    "Bamboo Massage": slugify("Warm Bamboo Therapy"),
+    "Facials": slugify("Advanced Radiance Facial"),
+    "Aromatherapy Massage": slugify("Aromatherapy Healing Massage"),
+    "Lomi Lomi Massage": slugify("Hawaiian Lomi Lomi Massage"),
+  };
+  const linkFor = (name: string) => `/services#${NAME_TO_SLUG[name] ?? slugify(name)}`;
+
   return (
     <footer className="text-white" style={{ backgroundColor: "#0e3c2c" }}>
       <div

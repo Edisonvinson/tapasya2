@@ -1,9 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppWidget } from "@/components/site/WhatsAppWidget";
 import { waBook, slugify } from "@/lib/data";
+
+// Curated luxury spa imagery (Unsplash) — one per treatment
+const TREATMENT_IMAGES: Record<string, string> = {
+  "tapasya-signature-massage":
+    "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+  "tapasya-balinese-massage":
+    "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1200&q=80",
+  "hawaiian-lomi-lomi-massage":
+    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+  "sports-massage-deep-tissue":
+    "https://images.unsplash.com/photo-1611073615452-4889ad328ad5?auto=format&fit=crop&w=1200&q=80",
+  "traditional-thai-massage":
+    "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=80",
+  "swedish-massage":
+    "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80",
+  "hot-stone-healing-therapy":
+    "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1200&q=80",
+  "warm-bamboo-therapy":
+    "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=1200&q=80",
+  "aromatherapy-healing-massage":
+    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
+  "tapasya-foot-fix-reflexology":
+    "https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&q=80",
+  "tapasya-body-scrub-and-wrap":
+    "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80",
+  "advanced-radiance-facial":
+    "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80",
+};
+
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -307,79 +338,12 @@ function ServicesPage() {
               />
             </div>
 
-            <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cat.treatments.map((t) => {
                 const id = slugify(t.name);
+                const img = TREATMENT_IMAGES[id] ?? FALLBACK_IMAGE;
                 return (
-                  <article
-                    key={id}
-                    id={id}
-                    className="bg-white rounded-sm p-7 md:p-10"
-                    style={{
-                      boxShadow: "0 2px 16px rgba(14,60,44,0.06)",
-                      borderLeft: "3px solid #ab8c4a",
-                      scrollMarginTop: 110,
-                    }}
-                  >
-                    <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-3 mb-4">
-                      <h3
-                        className="font-serif font-semibold"
-                        style={{ color: "#0e3c2c", fontSize: 24, lineHeight: 1.25 }}
-                      >
-                        {t.name}
-                      </h3>
-                      <p
-                        style={{
-                          color: "#ab8c4a",
-                          fontSize: 14,
-                          fontWeight: 700,
-                          letterSpacing: "0.04em",
-                          whiteSpace: "nowrap",
-                        }}
-                        className="md:text-right"
-                      >
-                        {t.priceLine}
-                      </p>
-                    </div>
-
-                    <p
-                      style={{ color: "#4a4a3a", fontSize: 16, lineHeight: 1.8 }}
-                      className="mb-5"
-                    >
-                      {t.description}
-                    </p>
-
-                    <dl className="grid gap-3 mb-6">
-                      {t.inclusions && <DetailRow label="Inclusions" value={t.inclusions} />}
-                      {t.features && <DetailRow label="Special Features" value={t.features} />}
-                      {t.techniques && <DetailRow label="Techniques Used" value={t.techniques} />}
-                      {t.benefits && <DetailRow label="Key Benefits" value={t.benefits} />}
-                      {t.products && <DetailRow label="Featured Products" value={t.products} />}
-                      {t.recommended && <DetailRow label="Recommended For" value={t.recommended} />}
-                      {t.bestFor && <DetailRow label="Best For" value={t.bestFor} />}
-                    </dl>
-
-                    <a
-                      href={waBook(t.name)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center transition"
-                      style={{
-                        padding: "11px 22px",
-                        fontSize: 13,
-                        fontWeight: 600,
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase",
-                        borderRadius: 3,
-                        background: "#ab8c4a",
-                        color: "#ffffff",
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "#8a6f31")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "#ab8c4a")}
-                    >
-                      Book This Treatment
-                    </a>
-                  </article>
+                  <TreatmentCard key={id} id={id} treatment={t} image={img} />
                 );
               })}
             </div>
@@ -393,9 +357,126 @@ function ServicesPage() {
   );
 }
 
+function TreatmentCard({
+  id,
+  treatment: t,
+  image,
+}: {
+  id: string;
+  treatment: Treatment;
+  image: string;
+}) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <article
+      id={id}
+      className="bg-white rounded-sm overflow-hidden flex flex-col h-full"
+      style={{
+        boxShadow: "0 2px 16px rgba(14,60,44,0.06)",
+        borderLeft: "3px solid #ab8c4a",
+        scrollMarginTop: 110,
+      }}
+    >
+      <div className="w-full overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
+        <img
+          src={image}
+          alt={t.name}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+        />
+      </div>
+
+      <div className="p-6 md:p-8 flex flex-col flex-1">
+        <h3
+          className="font-serif font-semibold"
+          style={{ color: "#0e3c2c", fontSize: 22, lineHeight: 1.25 }}
+        >
+          {t.name}
+        </h3>
+        <p
+          className="mt-2"
+          style={{
+            color: "#ab8c4a",
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: "0.04em",
+          }}
+        >
+          {t.priceLine}
+        </p>
+
+        {/* Description — truncated on mobile, full on desktop */}
+        <p
+          style={{ color: "#4a4a3a", fontSize: 15, lineHeight: 1.75 }}
+          className={`mt-4 mb-2 md:!line-clamp-none ${expanded ? "" : "line-clamp-3"} md:line-clamp-none`}
+        >
+          {t.description}
+        </p>
+
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="md:hidden self-start mb-4"
+          style={{
+            color: "#ab8c4a",
+            fontSize: 12,
+            fontWeight: 700,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            padding: "4px 0",
+          }}
+        >
+          {expanded ? "Show Less −" : "Show More +"}
+        </button>
+
+        {/* Details — visible on desktop always; on mobile only when expanded */}
+        <div
+          className={`overflow-hidden transition-all duration-300 ${
+            expanded ? "max-h-[2000px]" : "max-h-0"
+          } md:max-h-none`}
+        >
+          <dl className="grid gap-3 mb-6 mt-2 md:mt-3">
+            {t.inclusions && <DetailRow label="Inclusions" value={t.inclusions} />}
+            {t.features && <DetailRow label="Special Features" value={t.features} />}
+            {t.techniques && <DetailRow label="Techniques Used" value={t.techniques} />}
+            {t.benefits && <DetailRow label="Key Benefits" value={t.benefits} />}
+            {t.products && <DetailRow label="Featured Products" value={t.products} />}
+            {t.recommended && <DetailRow label="Recommended For" value={t.recommended} />}
+            {t.bestFor && <DetailRow label="Best For" value={t.bestFor} />}
+          </dl>
+        </div>
+
+        <div className="mt-auto pt-2">
+          <a
+            href={waBook(t.name)}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center transition"
+            style={{
+              padding: "11px 22px",
+              fontSize: 13,
+              fontWeight: 600,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              borderRadius: 3,
+              background: "#ab8c4a",
+              color: "#ffffff",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#8a6f31")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#ab8c4a")}
+          >
+            Book This Treatment
+          </a>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 function DetailRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-1 md:gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-1 md:gap-4">
       <dt
         style={{
           color: "#ab8c4a",
@@ -408,7 +489,7 @@ function DetailRow({ label, value }: { label: string; value: string }) {
       >
         {label}
       </dt>
-      <dd style={{ color: "#1a1a1a", fontSize: 15, lineHeight: 1.7 }}>{value}</dd>
+      <dd style={{ color: "#1a1a1a", fontSize: 14.5, lineHeight: 1.7 }}>{value}</dd>
     </div>
   );
 }

@@ -116,6 +116,12 @@ export function Hero() {
                   key={idx}
                   src={sl.image}
                   alt={sl.headline}
+                  width={420}
+                  height={420}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  decoding={idx === 0 ? "sync" : "async"}
+                  // @ts-expect-error fetchpriority is a valid HTML attribute
+                  fetchpriority={idx === 0 ? "high" : "low"}
                   className={`absolute inset-0 w-full h-full rounded-full transition-opacity duration-700 ${
                     i === idx ? "opacity-100" : "opacity-0"
                   }`}

@@ -66,7 +66,7 @@ export function Footer() {
             {firstHalf.map((s) => (
               <li key={s.name}>
                 <a
-                  href="#services"
+                  href={linkFor(s.name)}
                   className="transition hover:text-white"
                   style={{ fontSize: 15, lineHeight: 2, color: "#b89b64" }}
                 >
@@ -85,7 +85,7 @@ export function Footer() {
             {secondHalf.map((s) => (
               <li key={s.name}>
                 <a
-                  href="#services"
+                  href={linkFor(s.name)}
                   className="transition hover:text-white"
                   style={{ fontSize: 15, lineHeight: 2, color: "#b89b64" }}
                 >

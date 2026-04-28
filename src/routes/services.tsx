@@ -8,29 +8,47 @@ import { waBook, slugify } from "@/lib/data";
 // Curated luxury spa imagery (Unsplash) — one per treatment
 const TREATMENT_IMAGES: Record<string, string> = {
   "tapasya-signature-massage":
-    "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Signature-scaled.jpeg",
   "tapasya-balinese-massage":
-    "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1200&q=80",
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Balinese-scaled.jpeg",
+  "tapasya-balinese":
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Balinese-scaled.jpeg",
   "hawaiian-lomi-lomi-massage":
     "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+  "lomi-lomi-massage":
+    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
   "sports-massage-deep-tissue":
-    "https://images.unsplash.com/photo-1611073615452-4889ad328ad5?auto=format&fit=crop&w=1200&q=80",
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Sports-scaled.jpeg",
+  "sports-massage-slash-deep-tissue":
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Sports-scaled.jpeg",
   "traditional-thai-massage":
+    "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=80",
+  "thai-traditional-massage":
     "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=80",
   "swedish-massage":
     "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80",
   "hot-stone-healing-therapy":
-    "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1200&q=80",
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/2243.webp",
+  "hot-stone-massage":
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/2243.webp",
   "warm-bamboo-therapy":
+    "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=1200&q=80",
+  "bamboo-massage":
     "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=1200&q=80",
   "aromatherapy-healing-massage":
     "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
+  "aromatherapy-massage":
+    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
   "tapasya-foot-fix-reflexology":
-    "https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&q=80",
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/141533975-1.webp",
+  "tapasya-foot-fix":
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/141533975-1.webp",
   "tapasya-body-scrub-and-wrap":
-    "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80",
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/best-body-scrub-massage-in-chennai-river-day-spa.webp",
   "advanced-radiance-facial":
-    "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80",
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Facial-scaled.jpeg",
+  "facials":
+    "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Facial-scaled.jpeg",
 };
 
 const FALLBACK_IMAGE =

@@ -38,7 +38,7 @@ export function Footer() {
               display: "inline-block",
             }}
           >
-            <img src="/logo.png" alt="Tapasya Spa & Wellness" className="h-[52px] w-auto block" />
+            <img src="/logo.png" alt="Tapasya Spa & Wellness" loading="lazy" decoding="async" className="h-[52px] w-auto block" />
           </div>
           <p
             className="mt-5 text-center md:text-left"

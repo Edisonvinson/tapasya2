@@ -10,14 +10,14 @@ const items = [
 export function TrustStrip() {
   return (
     <section
-      className="text-white border-t border-b"
-      style={{ backgroundColor: "#0e3c2c", borderColor: "#ab8c4a" }}
+      className="text-white"
+      style={{ backgroundColor: "#0f3d2e" }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-7 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
         {items.map(({ Icon, label }) => (
           <div key={label} className="flex flex-col items-center text-center gap-3">
-            <Icon size={32} strokeWidth={1.4} style={{ color: "#b89b64" }} />
-            <p className="text-[14px] font-semibold tracking-[0.06em] text-white">{label}</p>
+            <Icon size={30} strokeWidth={1.3} style={{ color: "#c6a46c" }} />
+            <p className="text-[13px] font-medium tracking-[0.08em] uppercase text-white/90">{label}</p>
           </div>
         ))}
       </div>

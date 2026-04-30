@@ -1,29 +1,5 @@
-import { Map, Hourglass, Sprout, MapPin } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 import { WHATSAPP_BASE } from "@/lib/data";
-
-const reasons = [
-  {
-    Icon: Map,
-    title: "Multi-Therapy Expertise",
-    desc: "Western, Ayurvedic, and Asian treatments under one roof, tailored to your needs.",
-  },
-  {
-    Icon: Hourglass,
-    title: "15+ Years Combined Experience",
-    desc: "Skilled therapists who ensure a personalized and comfortable experience for every guest.",
-  },
-  {
-    Icon: Sprout,
-    title: "Premium Products",
-    desc: "High-quality essential oils and certified skincare products used in every session.",
-  },
-  {
-    Icon: MapPin,
-    title: "Heart of Kumily",
-    desc: "Located close to the Elephant Camp and Periyar boat counter — easy to reach, impossible to forget.",
-  },
-];
 
 export function About() {
   const ref = useReveal<HTMLDivElement>();

@@ -40,12 +40,30 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 left-0 right-0 z-40 transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_2px_20px_rgba(15,61,46,0.08)]" : ""
-      }`}
-      style={{ backgroundColor: "#f5ece0" }}
+      className={`sticky top-0 left-0 right-0 z-40 transition-shadow duration-300 bg-white`}
     >
-      <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
+      {/* Top contact strip */}
+      <div style={{ backgroundColor: BRAND_GREEN }} className="text-white text-[12px] md:text-[13px]">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 h-9 flex items-center justify-end gap-5">
+          <a href="tel:07511193223" className="inline-flex items-center gap-1.5 hover:opacity-90">
+            <span aria-hidden>📞</span>
+            <span>075111 93223</span>
+          </a>
+          <a href="mailto:tapasyawellnessspa@gmail.com" className="inline-flex items-center gap-1.5 hover:opacity-90">
+            <span aria-hidden>✉️</span>
+            <span className="hidden sm:inline">tapasyawellnessspa@gmail.com</span>
+            <span className="sm:hidden">Email</span>
+          </a>
+        </div>
+      </div>
+      {/* Constrained nav bar matching hero width with rounded edges */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-3 pb-2">
+      <div
+        className={`flex items-center justify-between h-20 px-5 md:px-7 ${
+          scrolled ? "shadow-[0_2px_20px_rgba(15,61,46,0.08)]" : ""
+        }`}
+        style={{ backgroundColor: "#f5ece0", borderRadius: 28 }}
+      >
         {/* Logo on off-white pill so logo background blends nicely */}
         <a href="/#home" className="flex items-center shrink-0">
           <img
@@ -115,6 +133,7 @@ export function Navbar() {
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </div>
       </div>
 
       {/* Search bar */}

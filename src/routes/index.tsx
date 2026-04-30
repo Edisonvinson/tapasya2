@@ -1,14 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { TrustStrip } from "@/components/site/TrustStrip";
-import { About } from "@/components/site/About";
-import { Signature } from "@/components/site/Signature";
-import { Services } from "@/components/site/Services";
-import { Testimonials } from "@/components/site/Testimonials";
-import { Contact } from "@/components/site/Contact";
-import { Footer } from "@/components/site/Footer";
-import { WhatsAppWidget } from "@/components/site/WhatsAppWidget";
+
+// Below-the-fold sections — lazy loaded to shrink initial JS for mobile
+const About = lazy(() => import("@/components/site/About").then((m) => ({ default: m.About })));
+const Signature = lazy(() => import("@/components/site/Signature").then((m) => ({ default: m.Signature })));
+const Services = lazy(() => import("@/components/site/Services").then((m) => ({ default: m.Services })));
+const Testimonials = lazy(() => import("@/components/site/Testimonials").then((m) => ({ default: m.Testimonials })));
+const Contact = lazy(() => import("@/components/site/Contact").then((m) => ({ default: m.Contact })));
+const Footer = lazy(() => import("@/components/site/Footer").then((m) => ({ default: m.Footer })));
+const WhatsAppWidget = lazy(() =>
+  import("@/components/site/WhatsAppWidget").then((m) => ({ default: m.WhatsAppWidget })),
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,13 +41,15 @@ function Index() {
       <Navbar />
       <Hero />
       <TrustStrip />
-      <About />
-      <Signature />
-      <Services />
-      <Testimonials />
-      <Contact />
-      <Footer />
-      <WhatsAppWidget />
+      <Suspense fallback={<div style={{ minHeight: 400 }} />}>
+        <About />
+        <Signature />
+        <Services />
+        <Testimonials />
+        <Contact />
+        <Footer />
+        <WhatsAppWidget />
+      </Suspense>
     </main>
   );
 }

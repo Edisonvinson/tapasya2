@@ -40,10 +40,10 @@ function Index() {
     <main className="bg-background text-foreground">
       <Navbar />
       <Hero />
-      <TrustStrip />
       <Suspense fallback={<div style={{ minHeight: 400 }} />}>
         <About />
         <Signature />
+        <TrustStrip />
         <Services />
         <Testimonials />
         <Contact />

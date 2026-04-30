@@ -9,22 +9,22 @@ const slides = [
   {
     image: hero1,
     eyebrow: "Tapasya",
-    headline: "Prioritize Your\nWellbeing",
-    sub: "The pace of travel and daily life can take a toll on your body and mind. At Tapasya, we offer a space where you can slow down, relax, and feel refreshed.",
+    headline: "The Best Spa\nExperience in Kumily",
+    sub: "Relax, unwind, and enjoy a rejuvenating spa experience at Tapasya. Leave feeling lighter, refreshed, and at ease.",
     cta: { label: "Learn More", href: WHATSAPP_BASE, external: true },
   },
   {
     image: hero2,
     eyebrow: "Tapasya",
-    headline: "Skin Care That\nGoes Deeper",
-    sub: "From sea salt scrubs to body wraps and targeted facials — our skin treatments are designed to cleanse, hydrate, and restore your skin's natural glow during your time in Kumily.",
+    headline: "Prioritize Your\nWellbeing",
+    sub: "The pace of travel and daily life can take a toll on your body and mind. At Tapasya, we offer a space where you can slow down, relax, and feel refreshed.",
     cta: { label: "Learn More", href: "/services", external: false },
   },
   {
     image: hero3,
     eyebrow: "Tapasya",
-    headline: "Hot Stone &\nWarm Bamboo",
-    sub: "Specially suited for Kumily's cool climate, our hot stone and warm bamboo therapies bring deep warmth and tension relief to every session.",
+    headline: "Skin care that\ngoes deeper",
+    sub: "From sea salt scrubs to body wraps and targeted facials, give your skin the care it needs to feel fresh and renewed during your stay in Kumily. Relax, unwind, and leave with a natural, healthy glow.",
     cta: { label: "Learn More", href: WHATSAPP_BASE, external: true },
   },
 ];

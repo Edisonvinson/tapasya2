@@ -143,7 +143,7 @@ export function Navbar() {
       )}
 
       {open && (
-        <div className="md:hidden bg-white border-t" style={{ borderColor: "#ece5d8" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "#e8dcc6", backgroundColor: "#f5ece0" }}>
           <div className="flex flex-col px-6 py-6 gap-5">
             {links.map((l) => (
               <a

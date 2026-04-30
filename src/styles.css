@@ -182,13 +182,13 @@
   }
 
   .fade-up {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.45s ease, transform 0.45s ease;
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
   .fade-up.in {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
   @keyframes bounce-attn {

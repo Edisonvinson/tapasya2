@@ -5,7 +5,7 @@ import { WHATSAPP_BASE } from "@/lib/data";
 const BRAND_GREEN = "#00846d";
 
 const links = [
-  { label: "About Us", href: "/#about" },
+  { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/#contact" },
 ];

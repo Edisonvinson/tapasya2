@@ -39,14 +39,14 @@ export function Testimonials() {
     : -(active * 100);
 
   return (
-    <section id="reviews" className="py-14 md:py-14 overflow-hidden" style={{ backgroundColor: "#f5f1eb" }}>
+    <section id="reviews" className="section-pad overflow-hidden" style={{ backgroundColor: "#faf7f2" }}>
       <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow" style={{ color: "#ab8c4a" }}>What Our Guests Say</span>
-          <h2 className="font-serif text-[28px] md:text-[40px] mt-2 font-bold" style={{ color: "#0e3c2c" }}>
+          <span className="eyebrow" style={{ color: "#c6a46c" }}>What Our Guests Say</span>
+          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
             Trusted by Travelers in Thekkady
           </h2>
-          <p className="mt-3 text-[17px] leading-[1.75]" style={{ color: "#4a4a3a" }}>
+          <p className="mt-5 text-[16px] leading-[1.8]" style={{ color: "#6b6b66" }}>
             Real words from real guests — sourced from our Google Reviews.
           </p>
         </div>
@@ -120,52 +120,52 @@ export function Testimonials() {
                   className="mx-auto relative"
                   style={{
                     background: "#ffffff",
-                    borderRadius: 8,
-                    padding: "36px 32px 28px",
-                    boxShadow: "0 2px 16px rgba(14,60,44,0.07)",
+                    borderRadius: 16,
+                    padding: "40px 36px 32px",
+                    boxShadow: "0 4px 24px -8px rgba(15,61,46,0.1)",
                     maxWidth: 600,
                   }}
                 >
                   <div
                     className="font-serif"
-                    style={{ color: "#ab8c4a", fontSize: 72, lineHeight: 0.8 }}
+                    style={{ color: "#c6a46c", fontSize: 80, lineHeight: 0.7 }}
                   >
                     “
                   </div>
                   <p
-                    className="italic"
                     style={{
-                      fontSize: 17,
+                      fontSize: 16,
                       lineHeight: 1.8,
-                      color: "#1a1a1a",
-                      marginTop: 8,
+                      color: "#4a4a3a",
+                      marginTop: 12,
+                      fontStyle: "italic",
                     }}
                   >
                     {t.text}
                   </p>
-                  <div className="flex items-center gap-4 mt-6">
+                  <div className="flex items-center gap-4 mt-7">
                     <div
                       className="flex items-center justify-center shrink-0"
                       style={{
                         width: 48,
                         height: 48,
                         borderRadius: "50%",
-                        background: "#e0d5c5",
-                        color: "#9a9085",
+                        background: "#f5f1ea",
+                        color: "#c6a46c",
                       }}
                     >
-                      <User size={24} />
+                      <User size={22} />
                     </div>
                     <div className="flex flex-col">
-                      <span style={{ fontWeight: 700, color: "#0e3c2c", fontSize: 16 }}>
+                      <span style={{ fontWeight: 700, color: "#0f3d2e", fontSize: 15 }}>
                         {t.name}
                       </span>
-                      <div className="flex gap-0.5 mt-0.5" style={{ color: "#ab8c4a" }}>
+                      <div className="flex gap-0.5 mt-1" style={{ color: "#c6a46c" }}>
                         {Array.from({ length: 5 }).map((_, k) => (
-                          <Star key={k} size={14} fill="currentColor" strokeWidth={0} />
+                          <Star key={k} size={13} fill="currentColor" strokeWidth={0} />
                         ))}
                       </div>
-                      <span style={{ color: "#7e7038", fontSize: 12, marginTop: 2 }}>
+                      <span style={{ color: "#8a6f31", fontSize: 11, marginTop: 2, letterSpacing: "0.05em" }}>
                         via Google Reviews
                       </span>
                     </div>
@@ -195,20 +195,20 @@ export function Testimonials() {
         </div>
       </div>
 
-      <div className="text-center mt-10">
+      <div className="text-center mt-12">
         <a
           href={GOOGLE_REVIEWS_URL}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center px-7 py-3 text-[14px] font-semibold uppercase tracking-[0.06em] rounded-sm border-2 transition"
-          style={{ borderColor: "#ab8c4a", color: "#ab8c4a" }}
+          className="inline-flex items-center px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.05em] border-[1.5px] transition"
+          style={{ borderColor: "#c6a46c", color: "#c6a46c", borderRadius: 999 }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#ab8c4a";
+            e.currentTarget.style.backgroundColor = "#c6a46c";
             e.currentTarget.style.color = "#ffffff";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = "transparent";
-            e.currentTarget.style.color = "#ab8c4a";
+            e.currentTarget.style.color = "#c6a46c";
           }}
         >
           Read All Reviews on Google →

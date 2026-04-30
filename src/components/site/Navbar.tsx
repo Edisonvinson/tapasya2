@@ -23,12 +23,10 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-        scrolled ? "bg-white shadow-[0_1px_12px_rgba(0,0,0,0.06)]" : "bg-transparent"
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(15,61,46,0.06)]" : "bg-transparent"
       }`}
-      style={scrolled ? { borderBottom: "1px solid #b89b64" } : undefined}
     >
-      <div className="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between h-20 md:h-24">
-        {/* Logo: TAPASYA_FINAL_Logo_jpg.jpeg — use for navbar and footer */}
+      <div className="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between h-16 md:h-20">
         <a href="/#home" className="flex items-center">
           <img
             src="/logo.png"
@@ -36,17 +34,17 @@ export function Navbar() {
             width={144}
             height={48}
             decoding="async"
-            className="transition-all duration-500 h-[56px] md:h-[48px] w-auto bg-white"
-            style={{ borderRadius: 4 }}
+            className="transition-all duration-500 h-[48px] md:h-[44px] w-auto bg-white"
+            style={{ borderRadius: 8 }}
           />
         </a>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-9">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[15px] font-medium tracking-wide transition-colors"
+              className="text-[14px] font-medium tracking-wide transition-colors hover:opacity-70"
               style={{ color: scrolled ? "#1a1a1a" : "#ffffff", textShadow: scrolled ? "none" : "0 2px 8px rgba(0,0,0,0.4)" }}
             >
               {l.label}
@@ -59,19 +57,20 @@ export function Navbar() {
             href={WHATSAPP_BASE}
             target="_blank"
             rel="noreferrer"
-            className="hidden md:inline-flex items-center px-5 py-2.5 text-[14px] font-semibold tracking-[0.06em] uppercase border-2 rounded-sm transition-all duration-300"
+            className="hidden md:inline-flex items-center px-6 py-2.5 text-[13px] font-semibold tracking-[0.05em] uppercase border-[1.5px] transition-all duration-300"
             style={{
-              borderColor: scrolled ? "#ab8c4a" : "#ffffff",
-              color: scrolled ? "#ab8c4a" : "#ffffff",
+              borderColor: scrolled ? "#c6a46c" : "#ffffff",
+              color: scrolled ? "#c6a46c" : "#ffffff",
               backgroundColor: "transparent",
+              borderRadius: 999,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = scrolled ? "#ab8c4a" : "#ffffff";
-              e.currentTarget.style.color = scrolled ? "#ffffff" : "#0e3c2c";
+              e.currentTarget.style.backgroundColor = scrolled ? "#c6a46c" : "#ffffff";
+              e.currentTarget.style.color = scrolled ? "#ffffff" : "#0f3d2e";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.color = scrolled ? "#ab8c4a" : "#ffffff";
+              e.currentTarget.style.color = scrolled ? "#c6a46c" : "#ffffff";
             }}
           >
             Book Now

@@ -33,9 +33,9 @@ export function Contact() {
               </a>
             </li>
             <li>
-              <a href="mailto:Thetapasyaspa@gmail.com" className="flex gap-4 items-center text-[16px] transition" style={{ color: "#1a1a1a" }}>
+              <a href="mailto:tapasyawellnessspa@gmail.com" className="flex gap-4 items-center text-[16px] transition" style={{ color: "#1a1a1a" }}>
                 <Mail className="shrink-0" size={20} strokeWidth={1.5} style={{ color: "#c6a46c" }} />
-                Thetapasyaspa@gmail.com
+                tapasyawellnessspa@gmail.com
               </a>
             </li>
             <li className="flex gap-4 items-center text-[16px]" style={{ color: "#1a1a1a" }}>

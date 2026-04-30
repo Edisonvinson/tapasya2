@@ -78,7 +78,7 @@ export function Navbar() {
         </div>
       </div>
       {/* Constrained nav bar matching hero width with rounded edges */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-3 pb-3">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-2 pb-2">
       <div
         className={`flex items-center justify-between h-24 px-5 md:px-7 ${
           scrolled ? "shadow-[0_2px_20px_rgba(15,61,46,0.08)]" : ""

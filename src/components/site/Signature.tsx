@@ -28,7 +28,7 @@ export function Signature() {
       <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Our Signature Experiences</span>
-          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
+          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#00846d" }}>
             Step Into Serenity
           </h2>
           <p className="mt-5 leading-[1.8] text-[16px]" style={{ color: "#6b6b66" }}>
@@ -66,9 +66,9 @@ export function Signature() {
                   <div className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase font-semibold flex-wrap" style={{ color: "#c6a46c" }}>
                     <span>{dur}</span>
                     <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "#c6a46c" }} />
-                    <span className="text-[14px] font-bold tracking-normal" style={{ color: "#0f3d2e" }}>{price}</span>
+                    <span className="text-[14px] font-bold tracking-normal" style={{ color: "#00846d" }}>{price}</span>
                   </div>
-                  <h3 className="font-serif text-[22px] mt-3 font-semibold leading-[1.2]" style={{ color: "#0f3d2e" }}>{s.name}</h3>
+                  <h3 className="font-serif text-[22px] mt-3 font-semibold leading-[1.2]" style={{ color: "#00846d" }}>{s.name}</h3>
                   <p className="mt-2 text-[14px] leading-[1.6] flex-1" style={{ color: "#6b6b66" }}>{s.desc}</p>
 
                   <div className="flex gap-2 mt-5 flex-wrap">
@@ -84,17 +84,17 @@ export function Signature() {
                         letterSpacing: "0.05em",
                         textTransform: "uppercase",
                         borderRadius: 999,
-                        border: "1.5px solid #0f3d2e",
-                        color: "#0f3d2e",
+                        border: "1.5px solid #00846d",
+                        color: "#00846d",
                         background: "transparent",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "#0f3d2e";
+                        e.currentTarget.style.background = "#00846d";
                         e.currentTarget.style.color = "#ffffff";
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.background = "transparent";
-                        e.currentTarget.style.color = "#0f3d2e";
+                        e.currentTarget.style.color = "#00846d";
                       }}
                     >
                       Know More

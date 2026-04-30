@@ -22,7 +22,7 @@ export function Navbar() {
   return (
     <header
       className={`sticky top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(15,61,46,0.06)]" : "bg-white"
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(0,132,109,0.06)]" : "bg-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
@@ -60,14 +60,14 @@ export function Navbar() {
           <button
             aria-label="Search"
             className="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#f5ece0] transition"
-            style={{ color: "#0f3d2e" }}
+            style={{ color: "#00846d" }}
           >
             <Search size={18} strokeWidth={1.8} />
           </button>
           <a
             href="/#contact"
             className="hidden md:inline-flex items-center gap-2 pl-3 pr-5 py-2 rounded-full text-[13px] font-semibold text-white transition hover:opacity-90"
-            style={{ backgroundColor: "#0f3d2e" }}
+            style={{ backgroundColor: "#00846d" }}
           >
             <span
               className="inline-flex items-center justify-center w-7 h-7 rounded-full"
@@ -80,7 +80,7 @@ export function Navbar() {
           <button
             onClick={() => setOpen((v) => !v)}
             className="md:hidden p-2"
-            style={{ color: "#0f3d2e" }}
+            style={{ color: "#00846d" }}
             aria-label="Toggle menu"
           >
             {open ? <X size={24} /> : <Menu size={24} />}
@@ -107,7 +107,7 @@ export function Navbar() {
               target="_blank"
               rel="noreferrer"
               className="inline-flex justify-center items-center px-5 py-3 text-[14px] font-semibold uppercase tracking-[0.06em] rounded-full text-white"
-              style={{ backgroundColor: "#0f3d2e" }}
+              style={{ backgroundColor: "#00846d" }}
             >
               Book Now
             </a>

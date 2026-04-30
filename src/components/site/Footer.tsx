@@ -36,14 +36,29 @@ export function Footer() {
             height={180}
             loading="lazy"
             decoding="async"
-            className="h-[110px] md:h-[130px] w-auto block"
+            className="h-[80px] md:h-[96px] w-auto block"
+            style={{ background: "transparent" }}
           />
           <p
-            className="mt-3 text-center md:text-left"
+            className="mt-4 text-center md:text-left"
             style={{ fontSize: 15, lineHeight: 1.7, color: "#ffffff" }}
           >
             Kumily's trusted spa for Western, Ayurvedic & Asian therapies.
           </p>
+          <address
+            className="mt-4 not-italic text-center md:text-left"
+            style={{ fontSize: 14, lineHeight: 1.7, color: "rgba(255,255,255,0.92)" }}
+          >
+            J575+5J7, Valiyakandam, Chelimada,
+            <br />
+            Thekkady, Kumily, Kerala 685509
+            <span
+              className="block mt-2"
+              style={{ fontSize: 12.5, color: "rgba(255,255,255,0.78)" }}
+            >
+              250m from Elephant Camp · 850m from Periyar Boat Ticket Counter
+            </span>
+          </address>
         </div>
 
         {/* Column 2 — Services (first half) */}

@@ -305,16 +305,16 @@ function ServicesPage() {
                   textTransform: "uppercase",
                   padding: "9px 16px",
                   borderRadius: 3,
-                  border: "1.5px solid #b89b64",
-                  color: "#b89b64",
+                  border: "1.5px solid #ffffff",
+                  color: "#ffffff",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#b89b64";
+                  e.currentTarget.style.background = "#ffffff";
                   e.currentTarget.style.color = "#00846d";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#b89b64";
+                  e.currentTarget.style.color = "#ffffff";
                 }}
               >
                 {c.title}

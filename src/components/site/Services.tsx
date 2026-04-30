@@ -16,12 +16,12 @@ export function Services() {
       <div ref={ref} className="fade-up max-w-5xl mx-auto px-6 md:px-10">
         <div className="text-center">
           <span className="eyebrow">All Treatments</span>
-          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
+          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#00846d" }}>
             Every Body Deserves Care
           </h2>
         </div>
 
-        <div className="mt-14 bg-white" style={{ borderRadius: 16, boxShadow: "0 4px 24px -8px rgba(15,61,46,0.08)" }}>
+        <div className="mt-14 bg-white" style={{ borderRadius: 16, boxShadow: "0 4px 24px -8px rgba(0,132,109,0.08)" }}>
           {ALL_SERVICES.map((s, idx) => {
             const isOpen = open === idx;
             const isLast = idx === ALL_SERVICES.length - 1;
@@ -41,7 +41,7 @@ export function Services() {
                     <span className="text-xs tabular-nums font-semibold" style={{ color: "#c6a46c" }}>
                       {String(idx + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-serif text-[20px] md:text-[24px] font-semibold transition-colors" style={{ color: isOpen ? "#0f3d2e" : "#1a1a1a" }}>
+                    <h3 className="font-serif text-[20px] md:text-[24px] font-semibold transition-colors" style={{ color: isOpen ? "#00846d" : "#1a1a1a" }}>
                       {s.name}
                     </h3>
                   </div>
@@ -55,7 +55,7 @@ export function Services() {
                       <p className="text-[15px] leading-[1.7] max-w-2xl" style={{ color: "#6b6b66" }}>
                         {s.desc}
                       </p>
-                      <p className="mt-4 text-[12px] uppercase tracking-[0.2em] font-semibold" style={{ color: "#0f3d2e" }}>
+                      <p className="mt-4 text-[12px] uppercase tracking-[0.2em] font-semibold" style={{ color: "#00846d" }}>
                         {priceLine(s.durations)}
                       </p>
                     </div>

@@ -23,7 +23,7 @@ export function Footer() {
   const linkFor = (name: string) => `/services#${NAME_TO_SLUG[name] ?? slugify(name)}`;
 
   return (
-    <footer className="text-white" style={{ backgroundColor: "#0f3d2e" }}>
+    <footer className="text-white" style={{ backgroundColor: "#00846d" }}>
       <div
         className="max-w-7xl mx-auto px-6 md:px-10 py-12 grid grid-cols-1 md:grid-cols-[1.8fr_1.2fr_1.2fr_1.4fr] gap-10 md:gap-10 items-start"
       >
@@ -115,7 +115,7 @@ export function Footer() {
               { Icon: Instagram, href: "#" },
               { Icon: Facebook, href: "#" },
               { Icon: MessageCircle, href: WHATSAPP_BASE },
-              { Icon: Mail, href: "mailto:Thetapasyaspa@gmail.com" },
+              { Icon: Mail, href: "mailto:tapasyawellnessspa@gmail.com" },
             ].map(({ Icon, href }, i) => (
               <a
                 key={i}
@@ -130,11 +130,11 @@ export function Footer() {
             ))}
           </div>
           <a
-            href="mailto:Thetapasyaspa@gmail.com"
+            href="mailto:tapasyawellnessspa@gmail.com"
             className="transition hover:text-white"
             style={{ fontSize: 15, color: "#c6a46c" }}
           >
-            Thetapasyaspa@gmail.com
+            tapasyawellnessspa@gmail.com
           </a>
         </div>
       </div>

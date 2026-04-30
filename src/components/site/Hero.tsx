@@ -67,6 +67,7 @@ export function Hero() {
           style={{
             borderRadius: 28,
             minHeight: "min(560px, 70vh)",
+            backgroundColor: "#F5F5F2",
           }}
         >
           {/* Slides */}
@@ -77,7 +78,6 @@ export function Hero() {
                 i === idx ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
             >
-              {/* Background image */}
               <img
                 src={sl.image}
                 alt={sl.headline}
@@ -88,13 +88,14 @@ export function Hero() {
                 // @ts-expect-error fetchpriority is a valid HTML attribute
                 fetchpriority={idx === 0 ? "high" : "low"}
                 className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: "right center" }}
               />
-              {/* Green overlay gradient — strong on left, fades right */}
+              {/* Off-white overlay — strong on left, fades right */}
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(90deg, rgba(15,61,46,0.95) 0%, rgba(15,61,46,0.75) 35%, rgba(15,61,46,0.15) 65%, rgba(15,61,46,0) 85%)",
+                    "linear-gradient(90deg, rgba(245,245,242,0.98) 0%, rgba(245,245,242,0.92) 35%, rgba(245,245,242,0.4) 65%, rgba(245,245,242,0) 90%)",
                 }}
               />
             </div>
@@ -105,21 +106,21 @@ export function Hero() {
             <div className="px-7 md:px-14 py-14 md:py-20 max-w-2xl">
               <span
                 className="font-serif italic text-[22px] md:text-[26px] block mb-4"
-                style={{ color: "#5cbf9a" }}
+                style={{ color: "#00846d" }}
               >
                 {slides[i].eyebrow}
               </span>
-              <h1 className="font-serif text-white text-[40px] md:text-[64px] lg:text-[72px] leading-[1.05] font-bold whitespace-pre-line">
+              <h1 className="font-serif text-[40px] md:text-[64px] lg:text-[72px] leading-[1.05] font-bold whitespace-pre-line" style={{ color: "#0f0f0f" }}>
                 {slides[i].headline}
               </h1>
-              <p className="text-white/90 text-[15px] md:text-[16px] mt-6 max-w-md leading-[1.65]">
+              <p className="text-[15px] md:text-[16px] mt-6 max-w-md leading-[1.65]" style={{ color: "#4a4a4a" }}>
                 {slides[i].sub}
               </p>
               <a
                 href={slides[i].cta.href}
                 {...(slides[i].cta.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                className="inline-flex items-center mt-8 px-8 py-4 bg-white text-[14px] font-semibold transition hover:bg-white/90"
-                style={{ color: "#0f3d2e", borderRadius: 999 }}
+                className="inline-flex items-center mt-8 px-8 py-4 text-white text-[14px] font-semibold transition hover:opacity-90"
+                style={{ backgroundColor: "#00846d", borderRadius: 999 }}
               >
                 {slides[i].cta.label}
               </a>
@@ -133,8 +134,9 @@ export function Hero() {
                 key={idx}
                 onClick={() => setI(idx)}
                 className={`h-2 rounded-full transition-all duration-500 ${
-                  i === idx ? "w-8 bg-white" : "w-2 bg-white/50"
+                  i === idx ? "w-8" : "w-2"
                 }`}
+                style={{ backgroundColor: i === idx ? "#00846d" : "rgba(0,132,109,0.35)" }}
                 aria-label={`Slide ${idx + 1}`}
               />
             ))}

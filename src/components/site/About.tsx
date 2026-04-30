@@ -38,7 +38,7 @@ export function About() {
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center mt-8 px-8 py-4 text-white text-[14px] font-semibold transition hover:opacity-90"
-              style={{ backgroundColor: "#0f0f0f", borderRadius: 999 }}
+              style={{ backgroundColor: "#c6a46c", borderRadius: 999 }}
             >
               Book Appointment
             </a>

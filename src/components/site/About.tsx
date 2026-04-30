@@ -28,14 +28,14 @@ const reasons = [
 export function About() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section id="about" className="py-14 md:py-14" style={{ backgroundColor: "#f2ede4" }}>
-      <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-start">
+    <section id="about" className="section-pad" style={{ backgroundColor: "#f5f1ea" }}>
+      <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-start">
         <div>
           <span className="eyebrow">Who We Are</span>
-          <h2 className="font-serif text-[28px] md:text-[40px] mt-2 leading-[1.1] font-bold" style={{ color: "#0e3c2c" }}>
-            A Spa Built Around Your Comfort
+          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
+            A Spa Built<br />Around Your Comfort
           </h2>
-          <div className="mt-3 space-y-4 leading-[1.75] text-[17px]" style={{ color: "#1a1a1a" }}>
+          <div className="mt-6 space-y-4 leading-[1.8] text-[16px]" style={{ color: "#4a4a3a" }}>
             <p>
               Tapasya Ayurvedic Spa is a wellness destination in Kumily offering a blend of Western,
               Ayurvedic, and Asian massage therapies. Created with a focus on relaxation and care,
@@ -57,20 +57,19 @@ export function About() {
             loading="lazy"
             decoding="async"
             className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-            style={{ opacity: 0.18 }}
+            style={{ opacity: 0.1 }}
           />
           <div className="relative grid sm:grid-cols-2 gap-5 w-full">
             {reasons.map(({ Icon, title, desc }) => (
               <div
                 key={title}
-                className="bg-white p-6 border border-transparent hover:border-gold-light transition-colors rounded-sm"
-                style={{ boxShadow: "0 2px 12px rgba(14,60,44,0.06)" }}
+                className="card-soft p-7"
               >
-                <div className="w-11 h-11 flex items-center justify-center rounded-sm" style={{ backgroundColor: "#f2ede4", color: "#8a6f31" }}>
-                  <Icon size={20} strokeWidth={1.6} />
+                <div className="w-12 h-12 flex items-center justify-center" style={{ backgroundColor: "#f5f1ea", color: "#c6a46c", borderRadius: 12 }}>
+                  <Icon size={22} strokeWidth={1.5} />
                 </div>
-                <h3 className="font-serif text-[20px] font-semibold mt-4" style={{ color: "#0e3c2c" }}>{title}</h3>
-                <p className="mt-2 text-[15px] leading-[1.65]" style={{ color: "#4a4a3a" }}>{desc}</p>
+                <h3 className="font-serif text-[20px] font-semibold mt-5" style={{ color: "#0f3d2e" }}>{title}</h3>
+                <p className="mt-2 text-[14px] leading-[1.65]" style={{ color: "#6b6b66" }}>{desc}</p>
               </div>
             ))}
           </div>

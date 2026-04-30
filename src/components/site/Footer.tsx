@@ -30,8 +30,10 @@ export function Footer() {
         {/* Column 1 — Brand */}
         <div className="flex flex-col items-center md:items-start">
           <img
-            src="/logo-white.png"
+            src="/logo-white.webp"
             alt="Tapasya Spa & Wellness"
+            width={320}
+            height={180}
             loading="lazy"
             decoding="async"
             className="h-[110px] md:h-[130px] w-auto block"

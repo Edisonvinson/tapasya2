@@ -77,7 +77,7 @@ export function Navbar() {
           <button
             aria-label="Search"
             onClick={() => setSearchOpen((v) => !v)}
-            className="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#f5ece0] transition"
+            className="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/60 transition"
             style={{ color: BRAND_GREEN }}
           >
             {searchOpen ? <X size={18} strokeWidth={1.8} /> : <Search size={18} strokeWidth={1.8} />}

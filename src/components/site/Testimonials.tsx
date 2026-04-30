@@ -43,7 +43,7 @@ export function Testimonials() {
       <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow" style={{ color: "#c6a46c" }}>What Our Guests Say</span>
-          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
+          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#00846d" }}>
             Trusted by Travelers in Thekkady
           </h2>
           <p className="mt-5 text-[16px] leading-[1.8]" style={{ color: "#6b6b66" }}>
@@ -157,7 +157,7 @@ export function Testimonials() {
                       <User size={22} />
                     </div>
                     <div className="flex flex-col">
-                      <span style={{ fontWeight: 700, color: "#0f3d2e", fontSize: 15 }}>
+                      <span style={{ fontWeight: 700, color: "#00846d", fontSize: 15 }}>
                         {t.name}
                       </span>
                       <div className="flex gap-0.5 mt-1" style={{ color: "#c6a46c" }}>

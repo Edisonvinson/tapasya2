@@ -9,7 +9,7 @@ export function Contact() {
       <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-start">
         <div>
           <span className="eyebrow">Find Us</span>
-          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
+          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#00846d" }}>
             Come Visit Us<br />in Kumily
           </h2>
 
@@ -48,7 +48,7 @@ export function Contact() {
             <a
               href="tel:+917511193223"
               className="inline-flex items-center px-7 py-3.5 text-white text-[13px] font-semibold uppercase tracking-[0.05em] hover:opacity-90 transition"
-              style={{ backgroundColor: "#0f3d2e", borderRadius: 999 }}
+              style={{ backgroundColor: "#00846d", borderRadius: 999 }}
             >
               Call Now
             </a>

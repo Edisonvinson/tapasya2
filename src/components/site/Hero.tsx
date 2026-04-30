@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { WHATSAPP_BASE } from "@/lib/data";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
@@ -8,21 +7,24 @@ import hero3 from "@/assets/hero-3.jpg";
 const slides = [
   {
     image: hero1,
-    headline: "Prioritize Your Wellbeing",
+    eyebrow: "Tapasya",
+    headline: "Prioritize Your\nWellbeing",
     sub: "The pace of travel and daily life can take a toll on your body and mind. At Tapasya, we offer a space where you can slow down, relax, and feel refreshed.",
-    cta: { label: "Book Your Spa Now", href: WHATSAPP_BASE, external: true },
+    cta: { label: "Learn More", href: WHATSAPP_BASE, external: true },
   },
   {
     image: hero2,
-    headline: "Skin Care That Goes Deeper",
+    eyebrow: "Tapasya",
+    headline: "Skin Care That\nGoes Deeper",
     sub: "From sea salt scrubs to body wraps and targeted facials — our skin treatments are designed to cleanse, hydrate, and restore your skin's natural glow during your time in Kumily.",
-    cta: { label: "Explore Treatments", href: "#services", external: false },
+    cta: { label: "Learn More", href: "/services", external: false },
   },
   {
     image: hero3,
-    headline: "First in Kumily — Hot Stone & Warm Bamboo",
+    eyebrow: "Tapasya",
+    headline: "Hot Stone &\nWarm Bamboo",
     sub: "Specially suited for Kumily's cool climate, our hot stone and warm bamboo therapies bring deep warmth and tension relief to every session.",
-    cta: { label: "Book Your Spa Now", href: WHATSAPP_BASE, external: true },
+    cta: { label: "Learn More", href: WHATSAPP_BASE, external: true },
   },
 ];
 
@@ -33,7 +35,7 @@ export function Hero() {
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(() => setI((v) => (v + 1) % slides.length), 4500);
+    const t = setInterval(() => setI((v) => (v + 1) % slides.length), 5500);
     return () => clearInterval(t);
   }, [paused]);
 
@@ -53,115 +55,91 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "#0f3d2e" }}
+      className="w-full bg-white pt-4 md:pt-6 pb-2"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24 min-h-[88vh] flex items-center">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-          {/* Left: text */}
-          <div className="relative order-1">
-            <span className="eyebrow" style={{ color: "#c6a46c" }}>
-              Tapasya · Kumily
-            </span>
-            <div className="relative mt-4 min-h-[280px] md:min-h-[320px]">
-              {slides.map((sl, idx) => (
-                <div
-                  key={idx}
-                  className={`transition-opacity duration-700 ${
-                    i === idx
-                      ? "opacity-100 relative"
-                      : "opacity-0 absolute inset-0 pointer-events-none"
-                  }`}
-                >
-                  <h1 className="font-serif text-white text-[34px] md:text-[52px] lg:text-[60px] leading-[1.15] font-bold">
-                    {sl.headline}
-                  </h1>
-                  <p className="text-white/90 text-base md:text-lg mt-4 max-w-xl leading-[1.7]">
-                    {sl.sub}
-                  </p>
-                  <a
-                    href={sl.cta.href}
-                    {...(sl.cta.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                    className="inline-flex items-center gap-2 mt-7 px-8 py-3.5 text-white text-[14px] font-semibold uppercase tracking-[0.05em] transition-all hover:translate-y-[-2px]"
-                    style={{ backgroundColor: "#c6a46c", borderRadius: 999, boxShadow: "0 8px 24px -8px rgba(198,164,108,0.5)" }}
-                  >
-                    {sl.cta.label} <span aria-hidden>→</span>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right: circular image */}
-          <div className="order-2 flex justify-center md:justify-end">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div
+          className="relative overflow-hidden"
+          style={{
+            borderRadius: 28,
+            minHeight: "min(560px, 70vh)",
+          }}
+        >
+          {/* Slides */}
+          {slides.map((sl, idx) => (
             <div
-              className="relative"
-              style={{
-                width: "min(82vw, 420px)",
-                height: "min(82vw, 420px)",
-              }}
+              key={idx}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                i === idx ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
             >
+              {/* Background image */}
+              <img
+                src={sl.image}
+                alt={sl.headline}
+                width={1400}
+                height={600}
+                loading={idx === 0 ? "eager" : "lazy"}
+                decoding={idx === 0 ? "sync" : "async"}
+                // @ts-expect-error fetchpriority is a valid HTML attribute
+                fetchpriority={idx === 0 ? "high" : "low"}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Green overlay gradient — strong on left, fades right */}
               <div
-                className="absolute inset-0 rounded-full"
+                className="absolute inset-0"
                 style={{
-                  boxShadow: "0 40px 100px -20px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(198,164,108,0.3)",
+                  background:
+                    "linear-gradient(90deg, rgba(15,61,46,0.95) 0%, rgba(15,61,46,0.75) 35%, rgba(15,61,46,0.15) 65%, rgba(15,61,46,0) 85%)",
                 }}
               />
-              {slides.map((sl, idx) => (
-                <img
-                  key={idx}
-                  src={sl.image}
-                  alt={sl.headline}
-                  width={420}
-                  height={420}
-                  loading={idx === 0 ? "eager" : "lazy"}
-                  decoding={idx === 0 ? "sync" : "async"}
-                  // @ts-expect-error fetchpriority is a valid HTML attribute
-                  fetchpriority={idx === 0 ? "high" : "low"}
-                  className={`absolute inset-0 w-full h-full rounded-full transition-opacity duration-700 ${
-                    i === idx ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{ objectFit: "cover" }}
-                />
-              ))}
+            </div>
+          ))}
+
+          {/* Content */}
+          <div className="relative z-10 flex items-center min-h-[560px] md:min-h-[600px]">
+            <div className="px-7 md:px-14 py-14 md:py-20 max-w-2xl">
+              <span
+                className="font-serif italic text-[22px] md:text-[26px] block mb-4"
+                style={{ color: "#5cbf9a" }}
+              >
+                {slides[i].eyebrow}
+              </span>
+              <h1 className="font-serif text-white text-[40px] md:text-[64px] lg:text-[72px] leading-[1.05] font-bold whitespace-pre-line">
+                {slides[i].headline}
+              </h1>
+              <p className="text-white/90 text-[15px] md:text-[16px] mt-6 max-w-md leading-[1.65]">
+                {slides[i].sub}
+              </p>
+              <a
+                href={slides[i].cta.href}
+                {...(slides[i].cta.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="inline-flex items-center mt-8 px-8 py-4 bg-white text-[14px] font-semibold transition hover:bg-white/90"
+                style={{ color: "#0f3d2e", borderRadius: 999 }}
+              >
+                {slides[i].cta.label}
+              </a>
             </div>
           </div>
+
+          {/* Dots */}
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+            {slides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setI(idx)}
+                className={`h-2 rounded-full transition-all duration-500 ${
+                  i === idx ? "w-8 bg-white" : "w-2 bg-white/50"
+                }`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Arrows */}
-      <button
-        onClick={prev}
-        aria-label="Previous slide"
-        className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 p-3 text-white/80 hover:text-white transition"
-      >
-        <ChevronLeft size={32} />
-      </button>
-      <button
-        onClick={next}
-        aria-label="Next slide"
-        className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 p-3 text-white/80 hover:text-white transition"
-      >
-        <ChevronRight size={32} />
-      </button>
-
-      {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setI(idx)}
-            className={`h-[2px] transition-all duration-500 ${
-              i === idx ? "w-12" : "w-6 bg-white/50"
-            }`}
-            style={i === idx ? { backgroundColor: "#c6a46c" } : undefined}
-            aria-label={`Slide ${idx + 1}`}
-          />
-        ))}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { Map, Hourglass, Sprout, MapPin } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
-import aboutIllustration from "@/assets/about-illustration.png";
+import { WHATSAPP_BASE } from "@/lib/data";
 
 const reasons = [
   {
@@ -28,51 +28,65 @@ const reasons = [
 export function About() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section id="about" className="section-pad" style={{ backgroundColor: "#f5f1ea" }}>
-      <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-start">
-        <div>
-          <span className="eyebrow">Who We Are</span>
-          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
-            A Spa Built<br />Around Your Comfort
-          </h2>
-          <div className="mt-6 space-y-4 leading-[1.8] text-[16px]" style={{ color: "#4a4a3a" }}>
-            <p>
-              Tapasya Ayurvedic Spa is a wellness destination in Kumily offering a blend of Western,
-              Ayurvedic, and Asian massage therapies. Created with a focus on relaxation and care,
-              Tapasya provides a space where travelers and guests can step away from stress and
-              experience true comfort.
+    <section id="about" className="section-pad bg-white">
+      <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10">
+        {/* Top: title left, paragraph + CTA right */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+          <div>
+            <h2
+              className="font-serif text-[44px] md:text-[64px] lg:text-[72px] leading-[1.02] font-bold"
+              style={{ color: "#0f0f0f", letterSpacing: "-0.02em" }}
+            >
+              A Spa Built<br />Around Your<br />Comfort
+            </h2>
+            <p className="mt-6 text-[15px] md:text-[16px]" style={{ color: "#6b6b66" }}>
+              Explore your inner world and find true calm
             </p>
-            <p>
-              We welcome individuals, couples, and tourists looking for a reliable and professional
-              spa experience during their stay in Thekkady.
-            </p>
+          </div>
+
+          <div className="lg:pt-6">
+            <div className="space-y-5 text-[16px] leading-[1.75]" style={{ color: "#3a3a3a" }}>
+              <p>
+                Tapasya Ayurvedic Spa is a wellness destination in Kumily offering a blend of Western,
+                Ayurvedic, and Asian massage therapies. Created with a focus on relaxation and care,
+                Tapasya provides a space where travelers and guests can step away from stress and
+                experience true comfort.
+              </p>
+              <p>
+                We welcome individuals, couples, and tourists looking for a reliable and professional
+                spa experience during their stay in Thekkady.
+              </p>
+            </div>
+            <a
+              href={WHATSAPP_BASE}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center mt-8 px-8 py-4 text-white text-[14px] font-semibold transition hover:opacity-90"
+              style={{ backgroundColor: "#0f0f0f", borderRadius: 999 }}
+            >
+              Book Appointment
+            </a>
           </div>
         </div>
 
-        <div className="relative min-h-[320px] flex items-center justify-center">
-          <img
-            src={aboutIllustration}
-            alt=""
-            aria-hidden
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-            style={{ opacity: 0.1 }}
-          />
-          <div className="relative grid sm:grid-cols-2 gap-5 w-full">
-            {reasons.map(({ Icon, title, desc }) => (
+        {/* Reasons grid below */}
+        <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {reasons.map(({ Icon, title, desc }) => (
+            <div key={title} className="card-soft p-7">
               <div
-                key={title}
-                className="card-soft p-7"
+                className="w-12 h-12 flex items-center justify-center"
+                style={{ backgroundColor: "#f5f1ea", color: "#c6a46c", borderRadius: 12 }}
               >
-                <div className="w-12 h-12 flex items-center justify-center" style={{ backgroundColor: "#f5f1ea", color: "#c6a46c", borderRadius: 12 }}>
-                  <Icon size={22} strokeWidth={1.5} />
-                </div>
-                <h3 className="font-serif text-[20px] font-semibold mt-5" style={{ color: "#0f3d2e" }}>{title}</h3>
-                <p className="mt-2 text-[14px] leading-[1.65]" style={{ color: "#6b6b66" }}>{desc}</p>
+                <Icon size={22} strokeWidth={1.5} />
               </div>
-            ))}
-          </div>
+              <h3 className="font-serif text-[20px] font-semibold mt-5" style={{ color: "#0f3d2e" }}>
+                {title}
+              </h3>
+              <p className="mt-2 text-[14px] leading-[1.65]" style={{ color: "#6b6b66" }}>
+                {desc}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

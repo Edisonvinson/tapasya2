@@ -40,9 +40,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(15,61,46,0.06)]" : "bg-white"
+      className={`sticky top-0 left-0 right-0 z-40 transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_2px_20px_rgba(15,61,46,0.08)]" : ""
       }`}
+      style={{ backgroundColor: "#f5ece0" }}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
         {/* Logo on off-white pill so logo background blends nicely */}

@@ -57,9 +57,9 @@ export function Navbar() {
         </div>
       </div>
       {/* Constrained nav bar matching hero width with rounded edges */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-2 pb-0">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-3 pb-3">
       <div
-        className={`flex items-center justify-between h-20 px-5 md:px-7 ${
+        className={`flex items-center justify-between h-24 px-5 md:px-7 ${
           scrolled ? "shadow-[0_2px_20px_rgba(15,61,46,0.08)]" : ""
         }`}
         style={{ backgroundColor: "#f5ece0", borderRadius: 28 }}
@@ -69,11 +69,11 @@ export function Navbar() {
           <img
             src="/logo.webp"
             alt="Tapasya Spa & Wellness"
-            width={180}
-            height={72}
+            width={240}
+            height={96}
             decoding="async"
             fetchPriority="high"
-            className="h-[56px] md:h-[60px] w-auto block"
+            className="h-[76px] md:h-[88px] w-auto block"
             style={{ background: "transparent" }}
           />
         </a>

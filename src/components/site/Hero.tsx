@@ -104,12 +104,6 @@ export function Hero() {
           {/* Content */}
           <div className="relative z-10 flex items-center min-h-[560px] md:min-h-[600px]">
             <div className="px-7 md:px-14 py-14 md:py-20 max-w-2xl">
-              <span
-                className="font-serif italic text-[22px] md:text-[26px] block mb-4"
-                style={{ color: "#5cbf9a" }}
-              >
-                {slides[i].eyebrow}
-              </span>
               <h1 className="font-serif text-white text-[40px] md:text-[64px] lg:text-[72px] leading-[1.05] font-bold whitespace-pre-line">
                 {slides[i].headline}
               </h1>

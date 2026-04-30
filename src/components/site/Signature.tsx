@@ -124,6 +124,8 @@ export function Signature() {
                     <img
                       src={img}
                       alt={s.name}
+                      width={600}
+                      height={450}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover"

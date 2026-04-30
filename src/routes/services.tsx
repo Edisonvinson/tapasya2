@@ -400,8 +400,12 @@ function TreatmentCard({
         <img
           src={image}
           alt={t.name}
+          width={800}
+          height={500}
           loading="lazy"
           decoding="async"
+          // @ts-expect-error fetchpriority is a valid HTML attribute
+          fetchpriority="low"
           className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
         />
       </div>

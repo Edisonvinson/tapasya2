@@ -134,6 +134,7 @@ export function Navbar() {
           </button>
         </div>
       </div>
+      </div>
 
       {/* Search bar */}
       {searchOpen && (

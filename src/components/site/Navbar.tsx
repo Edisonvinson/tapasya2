@@ -118,7 +118,7 @@ export function Navbar() {
 
       {/* Search bar */}
       {searchOpen && (
-        <div className="border-t" style={{ borderColor: "#ece5d8", backgroundColor: "#ffffff" }}>
+        <div className="border-t" style={{ borderColor: "#e8dcc6", backgroundColor: "#f5ece0" }}>
           <form
             onSubmit={onSearchSubmit}
             className="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center gap-3"

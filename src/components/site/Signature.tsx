@@ -1,5 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
-import { SIGNATURE, waBook, slugify } from "@/lib/data";
+import { ArrowRight } from "lucide-react";
+import { SIGNATURE, slugify } from "@/lib/data";
 import { useReveal } from "@/hooks/use-reveal";
 
 const CARD_IMAGES: Record<string, string> = {
@@ -9,7 +9,20 @@ const CARD_IMAGES: Record<string, string> = {
   "Facials": "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Facial-scaled.jpeg",
 };
 
-// Map signature card names → slugs on the /services page
+const CARD_TINTS: Record<string, string> = {
+  "Tapasya Signature Massage": "#d8efe4",
+  "Sports Massage / Deep Tissue": "#fde6d4",
+  "Tapasya Balinese Massage": "#f3e6d2",
+  "Facials": "#f6dfe1",
+};
+
+const CARD_CHIPS: Record<string, [string, string]> = {
+  "Tapasya Signature Massage": ["Signature", "Full Body"],
+  "Sports Massage / Deep Tissue": ["Deep Tissue", "Recovery"],
+  "Tapasya Balinese Massage": ["Balinese", "Oil + Dry"],
+  "Facials": ["Skin Care", "Radiance"],
+};
+
 const KNOW_MORE_SLUG: Record<string, string> = {
   "Tapasya Signature Massage": slugify("Tapasya Signature Massage"),
   "Sports Massage / Deep Tissue": slugify("Sports Massage / Deep Tissue"),
@@ -25,101 +38,113 @@ export function Signature() {
   const ref = useReveal<HTMLDivElement>();
   return (
     <section className="section-pad" style={{ backgroundColor: "#faf7f2" }}>
-      <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10">
+      <div ref={ref} className="fade-up max-w-7xl mx-auto px-5 md:px-10">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Our Signature Experiences</span>
-          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
+          <h2 className="font-serif text-[32px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#00846d" }}>
             Step Into Serenity
           </h2>
-          <p className="mt-5 leading-[1.8] text-[16px]" style={{ color: "#6b6b66" }}>
+          <p className="mt-5 leading-[1.8] text-[15px] md:text-[16px]" style={{ color: "#6b6b66" }}>
             Signature spa therapies designed to relax the body, restore balance, and elevate your spa
             journey in Kumily.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {SIGNATURE.map((s) => {
-            const d = s.durations;
-            const dur = d.length > 1 ? `${d[0].min} / ${d[1].min} Min` : `${d[0].min} Min`;
-            const price = d.length > 1
-              ? `From ₹${d[0].price.toLocaleString()}`
-              : `₹${d[0].price.toLocaleString()}`;
             const img = CARD_IMAGES[s.name];
+            const tint = CARD_TINTS[s.name] ?? "#f3ebde";
+            const chips = CARD_CHIPS[s.name] ?? ["Wellness", "Spa"];
             return (
               <article
                 key={s.name}
-                className="card-soft overflow-hidden flex flex-col"
+                className="overflow-hidden flex flex-col"
+                style={{
+                  backgroundColor: tint,
+                  borderRadius: 22,
+                  boxShadow: "0 4px 20px -8px rgba(15,61,46,0.10)",
+                  transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.boxShadow = "0 12px 32px -10px rgba(15,61,46,0.16)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 20px -8px rgba(15,61,46,0.10)";
+                }}
               >
-                <div
-                  className="overflow-hidden"
-                  style={{ aspectRatio: "4 / 5" }}
-                >
-                  <img
-                    src={img}
-                    alt={s.name}
-                    loading="lazy"
-                    decoding="async"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
-                  />
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase font-semibold flex-wrap" style={{ color: "#c6a46c" }}>
-                    <span>{dur}</span>
-                    <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "#c6a46c" }} />
-                    <span className="text-[14px] font-bold tracking-normal" style={{ color: "#0f3d2e" }}>{price}</span>
+                {/* Top — chips + dot */}
+                <div className="px-5 pt-5 flex items-start justify-between">
+                  <div className="flex flex-wrap gap-1.5">
+                    {chips.map((c) => (
+                      <span
+                        key={c}
+                        className="inline-flex items-center px-3 py-1 text-[11px] font-semibold"
+                        style={{
+                          backgroundColor: "rgba(255,255,255,0.7)",
+                          color: "#1a1a1a",
+                          borderRadius: 999,
+                        }}
+                      >
+                        {c}
+                      </span>
+                    ))}
                   </div>
-                  <h3 className="font-serif text-[22px] mt-3 font-semibold leading-[1.2]" style={{ color: "#0f3d2e" }}>{s.name}</h3>
-                  <p className="mt-2 text-[14px] leading-[1.6] flex-1" style={{ color: "#6b6b66" }}>{s.desc}</p>
+                  <span
+                    className="w-5 h-5 rounded-full inline-flex items-center justify-center shrink-0"
+                    style={{ border: "1.5px solid #00846d" }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#00846d" }} />
+                  </span>
+                </div>
 
-                  <div className="flex gap-2 mt-5 flex-wrap">
+                {/* Title + desc */}
+                <div className="px-5 pt-4 pb-5">
+                  <h3
+                    className="font-serif text-[22px] md:text-[24px] font-bold leading-[1.15]"
+                    style={{ color: "#1a1a1a" }}
+                  >
+                    {s.name}
+                  </h3>
+                  <p
+                    className="mt-2.5 text-[13.5px] leading-[1.55]"
+                    style={{ color: "#4a4a3a" }}
+                  >
+                    {s.desc}
+                  </p>
+                </div>
+
+                {/* Image with floating Read More */}
+                <div className="relative mt-auto px-3 pb-3">
+                  <div
+                    className="relative overflow-hidden"
+                    style={{ borderRadius: 16, aspectRatio: "4 / 3" }}
+                  >
+                    <img
+                      src={img}
+                      alt={s.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover"
+                    />
                     <a
                       href={knowMoreHref(s.name)}
-                      className="text-center transition"
+                      className="absolute bottom-3 left-3 inline-flex items-center gap-2 pl-4 pr-1.5 py-1.5 text-[12px] font-semibold transition hover:bg-white"
                       style={{
-                        flex: 1,
-                        minWidth: 100,
-                        padding: "10px 14px",
-                        fontSize: 12,
-                        fontWeight: 600,
-                        letterSpacing: "0.05em",
-                        textTransform: "uppercase",
+                        backgroundColor: "rgba(255,255,255,0.95)",
+                        color: "#1a1a1a",
                         borderRadius: 999,
-                        border: "1.5px solid #0f3d2e",
-                        color: "#0f3d2e",
-                        background: "transparent",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "#0f3d2e";
-                        e.currentTarget.style.color = "#ffffff";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "transparent";
-                        e.currentTarget.style.color = "#0f3d2e";
+                        backdropFilter: "blur(4px)",
                       }}
                     >
-                      Know More
-                    </a>
-                    <a
-                      href={waBook(s.name)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-1 transition"
-                      style={{
-                        flex: 1,
-                        minWidth: 100,
-                        padding: "10px 14px",
-                        fontSize: 12,
-                        fontWeight: 600,
-                        letterSpacing: "0.05em",
-                        textTransform: "uppercase",
-                        borderRadius: 999,
-                        background: "#c6a46c",
-                        color: "#ffffff",
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "#ab8c4a")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "#c6a46c")}
-                    >
-                      Book Now <ArrowUpRight size={13} />
+                      Read More
+                      <span
+                        className="inline-flex items-center justify-center w-7 h-7 rounded-full"
+                        style={{ backgroundColor: "#1a1a1a", color: "#ffffff" }}
+                      >
+                        <ArrowRight size={13} strokeWidth={2} />
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -132,7 +157,7 @@ export function Signature() {
           <a
             href="/services"
             className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.2em] font-semibold border-b pb-1.5"
-            style={{ color: "#c6a46c", borderColor: "#c6a46c" }}
+            style={{ color: "#00846d", borderColor: "#00846d" }}
           >
             Explore All Treatments →
           </a>

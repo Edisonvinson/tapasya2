@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { WHATSAPP_BASE } from "@/lib/data";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
+import hero1 from "@/assets/hero-1.webp";
+import hero2 from "@/assets/hero-2.webp";
+import hero3 from "@/assets/hero-3.webp";
 
 const slides = [
   {

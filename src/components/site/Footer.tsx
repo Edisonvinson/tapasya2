@@ -23,7 +23,7 @@ export function Footer() {
   const linkFor = (name: string) => `/services#${NAME_TO_SLUG[name] ?? slugify(name)}`;
 
   return (
-    <footer className="text-white" style={{ backgroundColor: "#0e3c2c" }}>
+    <footer className="text-white" style={{ backgroundColor: "#0f3d2e" }}>
       <div
         className="max-w-7xl mx-auto px-6 md:px-10 py-12 grid grid-cols-1 md:grid-cols-[1.8fr_1.2fr_1.2fr_1.4fr] gap-10 md:gap-10 items-start"
       >
@@ -56,7 +56,7 @@ export function Footer() {
               fontSize: 12,
               letterSpacing: "0.22em",
               fontWeight: 700,
-              color: "#b89b64",
+              color: "#c6a46c",
               marginBottom: 18,
             }}
           >
@@ -68,7 +68,7 @@ export function Footer() {
                 <a
                   href={linkFor(s.name)}
                   className="transition hover:text-white"
-                  style={{ fontSize: 15, lineHeight: 2, color: "#b89b64" }}
+                  style={{ fontSize: 15, lineHeight: 2, color: "#c6a46c" }}
                 >
                   {s.name}
                 </a>
@@ -87,7 +87,7 @@ export function Footer() {
                 <a
                   href={linkFor(s.name)}
                   className="transition hover:text-white"
-                  style={{ fontSize: 15, lineHeight: 2, color: "#b89b64" }}
+                  style={{ fontSize: 15, lineHeight: 2, color: "#c6a46c" }}
                 >
                   {s.name}
                 </a>
@@ -104,7 +104,7 @@ export function Footer() {
               fontSize: 12,
               letterSpacing: "0.22em",
               fontWeight: 700,
-              color: "#b89b64",
+              color: "#c6a46c",
               marginBottom: 18,
             }}
           >
@@ -123,7 +123,7 @@ export function Footer() {
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel="noreferrer"
                 className="w-10 h-10 border flex items-center justify-center transition rounded-sm"
-                style={{ borderColor: "#b89b64", color: "#b89b64" }}
+                style={{ borderColor: "#c6a46c", color: "#c6a46c" }}
               >
                 <Icon size={16} strokeWidth={1.5} />
               </a>
@@ -132,7 +132,7 @@ export function Footer() {
           <a
             href="mailto:Thetapasyaspa@gmail.com"
             className="transition hover:text-white"
-            style={{ fontSize: 15, color: "#b89b64" }}
+            style={{ fontSize: 15, color: "#c6a46c" }}
           >
             Thetapasyaspa@gmail.com
           </a>

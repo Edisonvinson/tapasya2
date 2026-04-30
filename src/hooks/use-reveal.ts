@@ -5,6 +5,16 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // If section is already in (or near) the viewport on mount, reveal immediately —
+    // avoids the "section appears blank for a beat" feel on fast scroll / late mount.
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || 800;
+    if (rect.top < vh * 1.1) {
+      el.classList.add("in");
+      return;
+    }
+
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -14,7 +24,7 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
           }
         });
       },
-      { threshold: 0.12 },
+      { threshold: 0.05, rootMargin: "200px 0px" },
     );
     obs.observe(el);
     return () => obs.disconnect();

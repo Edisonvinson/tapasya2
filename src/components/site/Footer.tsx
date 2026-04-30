@@ -34,9 +34,10 @@ export function Footer() {
             alt="Tapasya Spa & Wellness"
             width={420}
             height={240}
-            loading="lazy"
+            loading="eager"
             decoding="async"
-            className="h-[128px] md:h-[152px] w-auto block"
+            fetchPriority="high"
+            className="h-[156px] md:h-[184px] w-auto block"
             style={{ background: "transparent" }}
           />
           <p

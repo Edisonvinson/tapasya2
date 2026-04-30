@@ -331,7 +331,14 @@ function ServicesPage() {
           id={cat.id}
           className="py-16 md:py-20"
           style={{
-            backgroundColor: ci % 2 === 0 ? "#faf7f2" : "#f5f1eb",
+            backgroundImage: `linear-gradient(${
+              ci % 2 === 0
+                ? "rgba(250,247,242,0.92), rgba(250,247,242,0.92)"
+                : "rgba(245,241,235,0.92), rgba(245,241,235,0.92)"
+            }), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=70')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
             scrollMarginTop: 110,
           }}
         >

@@ -29,16 +29,13 @@ export function Footer() {
       >
         {/* Column 1 — Brand */}
         <div className="flex flex-col items-center md:items-start">
-          <div
-            style={{
-              background: "#f5ece0",
-              padding: 8,
-              borderRadius: 12,
-              display: "inline-block",
-            }}
-          >
-            <img src="/logo.png" alt="Tapasya Spa & Wellness" loading="lazy" decoding="async" className="h-[60px] w-auto block" />
-          </div>
+          <img
+            src="/logo-white.png"
+            alt="Tapasya Spa & Wellness"
+            loading="lazy"
+            decoding="async"
+            className="h-[80px] w-auto block"
+          />
           <p
             className="mt-5 text-center md:text-left"
             style={{ fontSize: 15, lineHeight: 1.7, color: "#ffffff" }}

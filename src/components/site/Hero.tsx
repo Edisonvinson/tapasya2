@@ -54,7 +54,7 @@ export function Hero() {
     <section
       id="home"
       className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "#0e3c2c" }}
+      style={{ backgroundColor: "#0f3d2e" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={onTouchStart}
@@ -64,7 +64,7 @@ export function Hero() {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left: text */}
           <div className="relative order-1">
-            <span className="eyebrow" style={{ color: "#b89b64" }}>
+            <span className="eyebrow" style={{ color: "#c6a46c" }}>
               Tapasya · Kumily
             </span>
             <div className="relative mt-4 min-h-[280px] md:min-h-[320px]">
@@ -86,7 +86,8 @@ export function Hero() {
                   <a
                     href={sl.cta.href}
                     {...(sl.cta.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                    className="inline-flex items-center gap-2 mt-6 px-7 py-3 bg-gold text-white text-[15px] font-semibold uppercase tracking-[0.04em] hover:bg-gold-muted transition-colors rounded-sm"
+                    className="inline-flex items-center gap-2 mt-7 px-8 py-3.5 text-white text-[14px] font-semibold uppercase tracking-[0.05em] transition-all hover:translate-y-[-2px]"
+                    style={{ backgroundColor: "#c6a46c", borderRadius: 999, boxShadow: "0 8px 24px -8px rgba(198,164,108,0.5)" }}
                   >
                     {sl.cta.label} <span aria-hidden>→</span>
                   </a>
@@ -107,8 +108,7 @@ export function Hero() {
               <div
                 className="absolute inset-0 rounded-full"
                 style={{
-                  boxShadow: "0 30px 80px -20px rgba(0,0,0,0.5)",
-                  border: "1px solid rgba(184,155,100,0.35)",
+                  boxShadow: "0 40px 100px -20px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(198,164,108,0.3)",
                 }}
               />
               {slides.map((sl, idx) => (
@@ -156,8 +156,9 @@ export function Hero() {
             key={idx}
             onClick={() => setI(idx)}
             className={`h-[2px] transition-all duration-500 ${
-              i === idx ? "w-12 bg-gold" : "w-6 bg-white/50"
+              i === idx ? "w-12" : "w-6 bg-white/50"
             }`}
+            style={i === idx ? { backgroundColor: "#c6a46c" } : undefined}
             aria-label={`Slide ${idx + 1}`}
           />
         ))}

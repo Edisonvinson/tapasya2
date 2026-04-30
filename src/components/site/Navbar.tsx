@@ -49,11 +49,12 @@ export function Navbar() {
         {/* Logo on off-white pill so logo background blends nicely */}
         <a href="/#home" className="flex items-center shrink-0">
           <img
-            src="/logo.png"
+            src="/logo.webp"
             alt="Tapasya Spa & Wellness"
             width={180}
             height={72}
             decoding="async"
+            fetchPriority="high"
             className="h-[64px] md:h-[68px] w-auto block"
           />
         </a>

@@ -14,31 +14,31 @@ const TREATMENT_IMAGES: Record<string, string> = {
   "tapasya-balinese":
     "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Balinese-scaled.jpeg",
   "hawaiian-lomi-lomi-massage":
-    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=75",
   "lomi-lomi-massage":
-    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=75",
   "sports-massage-deep-tissue":
     "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Sports-scaled.jpeg",
   "sports-massage-slash-deep-tissue":
     "https://www.graymatterdubai.com/wp-content/uploads/2026/04/Sports-scaled.jpeg",
   "traditional-thai-massage":
-    "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=75",
   "thai-traditional-massage":
-    "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=75",
   "swedish-massage":
-    "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=75",
   "hot-stone-healing-therapy":
     "https://www.graymatterdubai.com/wp-content/uploads/2026/04/2243.webp",
   "hot-stone-massage":
     "https://www.graymatterdubai.com/wp-content/uploads/2026/04/2243.webp",
   "warm-bamboo-therapy":
-    "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=800&q=75",
   "bamboo-massage":
-    "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1620733723572-11c53f73a416?auto=format&fit=crop&w=800&q=75",
   "aromatherapy-healing-massage":
-    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=75",
   "aromatherapy-massage":
-    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=75",
   "tapasya-foot-fix-reflexology":
     "https://www.graymatterdubai.com/wp-content/uploads/2026/04/141533975-1.webp",
   "tapasya-foot-fix":
@@ -52,7 +52,7 @@ const TREATMENT_IMAGES: Record<string, string> = {
 };
 
 const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80";
+  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=75";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -400,8 +400,12 @@ function TreatmentCard({
         <img
           src={image}
           alt={t.name}
+          width={800}
+          height={500}
           loading="lazy"
           decoding="async"
+          // @ts-expect-error fetchpriority is a valid HTML attribute
+          fetchpriority="low"
           className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
         />
       </div>

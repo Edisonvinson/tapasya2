@@ -32,8 +32,13 @@ function AboutPage() {
 
       {/* Hero */}
       <section
-        style={{ backgroundColor: "#00846d" }}
-        className="pt-28 pb-16 md:pt-36 md:pb-20 text-white"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,132,109,0.86), rgba(0,132,109,0.86)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=70')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="pt-20 pb-16 md:pt-24 md:pb-20 text-white"
       >
         <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
           <span

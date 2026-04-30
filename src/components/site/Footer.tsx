@@ -32,11 +32,11 @@ export function Footer() {
           <img
             src="/logo-white.webp"
             alt="Tapasya Spa & Wellness"
-            width={320}
-            height={180}
+            width={420}
+            height={240}
             loading="lazy"
             decoding="async"
-            className="h-[80px] md:h-[96px] w-auto block"
+            className="h-[128px] md:h-[152px] w-auto block"
             style={{ background: "transparent" }}
           />
           <p

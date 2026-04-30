@@ -113,11 +113,11 @@ export function Signature() {
                         letterSpacing: "0.05em",
                         textTransform: "uppercase",
                         borderRadius: 999,
-                        background: "#c6a46c",
+                        background: "#00846d",
                         color: "#ffffff",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "#ab8c4a")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "#c6a46c")}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#006b58")}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "#00846d")}
                     >
                       Book Now <ArrowUpRight size={13} />
                     </a>

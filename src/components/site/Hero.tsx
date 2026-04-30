@@ -94,7 +94,7 @@ export function Hero() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(90deg, rgba(15,61,46,0.95) 0%, rgba(15,61,46,0.75) 35%, rgba(15,61,46,0.15) 65%, rgba(15,61,46,0) 85%)",
+                    "linear-gradient(90deg, rgba(0,132,109,0.95) 0%, rgba(0,132,109,0.78) 35%, rgba(0,132,109,0.18) 65%, rgba(0,132,109,0) 85%)",
                 }}
               />
             </div>
@@ -119,7 +119,7 @@ export function Hero() {
                 href={slides[i].cta.href}
                 {...(slides[i].cta.external ? { target: "_blank", rel: "noreferrer" } : {})}
                 className="inline-flex items-center mt-8 px-8 py-4 bg-white text-[14px] font-semibold transition hover:bg-white/90"
-                style={{ color: "#0f3d2e", borderRadius: 999 }}
+                style={{ color: "#00846d", borderRadius: 999 }}
               >
                 {slides[i].cta.label}
               </a>

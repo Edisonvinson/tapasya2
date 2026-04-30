@@ -77,7 +77,7 @@ export function WhatsAppWidget() {
         }`}
       >
         <div className="md:rounded-2xl rounded-t-2xl shadow-2xl overflow-hidden border flex flex-col max-h-[80vh]" style={{ backgroundColor: "#faf7f2", borderColor: "#b89b64" }}>
-          <div className="p-4 flex items-center gap-3" style={{ backgroundColor: "#0e3c2c", color: "#ffffff" }}>
+          <div className="p-4 flex items-center gap-3" style={{ backgroundColor: "#00846d", color: "#ffffff" }}>
             <img src="/logo.png" alt="" loading="lazy" decoding="async" className="h-[28px] w-auto" />
             <div className="flex-1">
               <p className="font-serif text-[16px] leading-tight text-white">Tapasya Spa & Wellness</p>
@@ -106,14 +106,14 @@ export function WhatsAppWidget() {
                     key={i}
                     onClick={() => setActive(i)}
                     className="block w-full text-left rounded-full px-4 py-2.5 text-[14px] border transition"
-                    style={{ backgroundColor: "#f2ede4", borderColor: "#ab8c4a", color: "#0e3c2c" }}
+                    style={{ backgroundColor: "#f2ede4", borderColor: "#ab8c4a", color: "#00846d" }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#ab8c4a";
                       e.currentTarget.style.color = "#ffffff";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "#f2ede4";
-                      e.currentTarget.style.color = "#0e3c2c";
+                      e.currentTarget.style.color = "#00846d";
                     }}
                   >
                     {q.q}

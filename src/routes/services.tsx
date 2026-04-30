@@ -267,7 +267,7 @@ function ServicesPage() {
       {/* Page header */}
       <section
         id="services-top"
-        style={{ backgroundColor: "#0e3c2c" }}
+        style={{ backgroundColor: "#00846d" }}
         className="pt-32 pb-16 md:pt-40 md:pb-20 text-white"
       >
         <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
@@ -310,7 +310,7 @@ function ServicesPage() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "#b89b64";
-                  e.currentTarget.style.color = "#0e3c2c";
+                  e.currentTarget.style.color = "#00846d";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "transparent";
@@ -345,7 +345,7 @@ function ServicesPage() {
               </span>
               <h2
                 className="font-serif font-bold mt-2"
-                style={{ color: "#0e3c2c", fontSize: "clamp(26px, 3.5vw, 40px)", lineHeight: 1.2 }}
+                style={{ color: "#00846d", fontSize: "clamp(26px, 3.5vw, 40px)", lineHeight: 1.2 }}
               >
                 {cat.title}
               </h2>
@@ -409,7 +409,7 @@ function TreatmentCard({
       <div className="p-6 md:p-8 flex flex-col flex-1">
         <h3
           className="font-serif font-semibold"
-          style={{ color: "#0e3c2c", fontSize: 22, lineHeight: 1.25 }}
+          style={{ color: "#00846d", fontSize: 22, lineHeight: 1.25 }}
         >
           {t.name}
         </h3>

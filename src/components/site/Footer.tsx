@@ -34,10 +34,10 @@ export function Footer() {
             alt="Tapasya Spa & Wellness"
             loading="lazy"
             decoding="async"
-            className="h-[160px] md:h-[180px] w-auto block -my-6 md:-my-8 -ml-2 md:-ml-4"
+            className="h-[110px] md:h-[130px] w-auto block"
           />
           <p
-            className="mt-1 text-center md:text-left"
+            className="mt-3 text-center md:text-left"
             style={{ fontSize: 15, lineHeight: 1.7, color: "#ffffff" }}
           >
             Kumily's trusted spa for Western, Ayurvedic & Asian therapies.

@@ -58,16 +58,13 @@ export function Navbar() {
           />
         </a>
 
-        {/* Center pill nav */}
-        <nav
-          className="hidden md:flex items-center gap-1 px-3 py-2 rounded-full"
-          style={{ backgroundColor: "#f5ece0" }}
-        >
+        {/* Center nav — transparent, sits on beige header */}
+        <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-5 py-2 rounded-full text-[14px] font-medium transition-colors hover:bg-white/80"
+              className="px-5 py-2 rounded-full text-[14px] font-medium transition-colors hover:bg-white/60"
               style={{ color: "#1a1a1a" }}
             >
               {l.label}

@@ -47,19 +47,14 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
         {/* Logo on off-white pill so logo background blends nicely */}
         <a href="/#home" className="flex items-center shrink-0">
-          <span
-            className="inline-flex items-center"
-            style={{ backgroundColor: "#f5ece0", padding: "6px 12px", borderRadius: 14 }}
-          >
-            <img
-              src="/logo.png"
-              alt="Tapasya Spa & Wellness"
-              width={160}
-              height={64}
-              decoding="async"
-              className="h-[60px] md:h-[56px] w-auto block"
-            />
-          </span>
+          <img
+            src="/logo.png"
+            alt="Tapasya Spa & Wellness"
+            width={180}
+            height={72}
+            decoding="async"
+            className="h-[64px] md:h-[68px] w-auto block"
+          />
         </a>
 
         {/* Center pill nav */}

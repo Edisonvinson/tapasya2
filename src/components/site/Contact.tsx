@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { Phone, Mail, Globe } from "lucide-react";
 import { WHATSAPP_BASE } from "@/lib/data";
 import { useReveal } from "@/hooks/use-reveal";
 

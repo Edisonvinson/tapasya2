@@ -40,9 +40,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(15,61,46,0.06)]" : "bg-white"
+      className={`sticky top-0 left-0 right-0 z-40 transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_2px_20px_rgba(15,61,46,0.08)]" : ""
       }`}
+      style={{ backgroundColor: "#f5ece0" }}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
         {/* Logo on off-white pill so logo background blends nicely */}
@@ -57,16 +58,13 @@ export function Navbar() {
           />
         </a>
 
-        {/* Center pill nav */}
-        <nav
-          className="hidden md:flex items-center gap-1 px-3 py-2 rounded-full"
-          style={{ backgroundColor: "#f5ece0" }}
-        >
+        {/* Center nav — transparent, sits on beige header */}
+        <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-5 py-2 rounded-full text-[14px] font-medium transition-colors hover:bg-white/80"
+              className="px-5 py-2 rounded-full text-[14px] font-medium transition-colors hover:bg-white/60"
               style={{ color: "#1a1a1a" }}
             >
               {l.label}
@@ -79,7 +77,7 @@ export function Navbar() {
           <button
             aria-label="Search"
             onClick={() => setSearchOpen((v) => !v)}
-            className="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#f5ece0] transition"
+            className="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/60 transition"
             style={{ color: BRAND_GREEN }}
           >
             {searchOpen ? <X size={18} strokeWidth={1.8} /> : <Search size={18} strokeWidth={1.8} />}
@@ -120,7 +118,7 @@ export function Navbar() {
 
       {/* Search bar */}
       {searchOpen && (
-        <div className="border-t" style={{ borderColor: "#ece5d8", backgroundColor: "#ffffff" }}>
+        <div className="border-t" style={{ borderColor: "#e8dcc6", backgroundColor: "#f5ece0" }}>
           <form
             onSubmit={onSearchSubmit}
             className="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center gap-3"
@@ -145,7 +143,7 @@ export function Navbar() {
       )}
 
       {open && (
-        <div className="md:hidden bg-white border-t" style={{ borderColor: "#ece5d8" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "#e8dcc6", backgroundColor: "#f5ece0" }}>
           <div className="flex flex-col px-6 py-6 gap-5">
             {links.map((l) => (
               <a

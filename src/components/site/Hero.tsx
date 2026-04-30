@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { WHATSAPP_BASE } from "@/lib/data";
 import hero1 from "@/assets/hero-1.webp";
 import hero2 from "@/assets/hero-2.webp";
@@ -103,12 +104,6 @@ export function Hero() {
           {/* Content */}
           <div className="relative z-10 flex items-center min-h-[560px] md:min-h-[600px]">
             <div className="px-7 md:px-14 py-14 md:py-20 max-w-2xl">
-              <span
-                className="font-serif italic text-[22px] md:text-[26px] block mb-4"
-                style={{ color: "#5cbf9a" }}
-              >
-                {slides[i].eyebrow}
-              </span>
               <h1 className="font-serif text-white text-[40px] md:text-[64px] lg:text-[72px] leading-[1.05] font-bold whitespace-pre-line">
                 {slides[i].headline}
               </h1>
@@ -125,6 +120,22 @@ export function Hero() {
               </a>
             </div>
           </div>
+
+          {/* Arrow controls */}
+          <button
+            onClick={prev}
+            aria-label="Previous slide"
+            className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/25 hover:bg-white/40 backdrop-blur-sm flex items-center justify-center text-white transition"
+          >
+            <ChevronLeft size={22} strokeWidth={2} />
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next slide"
+            className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/25 hover:bg-white/40 backdrop-blur-sm flex items-center justify-center text-white transition"
+          >
+            <ChevronRight size={22} strokeWidth={2} />
+          </button>
 
           {/* Dots */}
           <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">

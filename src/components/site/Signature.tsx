@@ -102,8 +102,8 @@ export function Signature() {
                 {/* Title + desc */}
                 <div className="px-5 pt-4 pb-5">
                   <h3
-                    className="font-serif text-[22px] md:text-[24px] font-bold leading-[1.15]"
-                    style={{ color: "#1a1a1a" }}
+                    className="text-[22px] md:text-[24px] font-bold leading-[1.15]"
+                    style={{ color: "#1a1a1a", fontFamily: "Inter, system-ui, sans-serif" }}
                   >
                     {s.name}
                   </h3>

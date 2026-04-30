@@ -56,7 +56,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="w-full bg-white pt-3 md:pt-4 pb-2"
+      className="w-full bg-white pt-0 pb-2"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={onTouchStart}

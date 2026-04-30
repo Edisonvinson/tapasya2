@@ -5,7 +5,7 @@ import { WHATSAPP_BASE } from "@/lib/data";
 const BRAND_GREEN = "#00846d";
 
 const links = [
-  { label: "About Us", href: "/#about" },
+  { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -57,14 +57,14 @@ export function Navbar() {
         </div>
       </div>
       {/* Constrained nav bar matching hero width with rounded edges */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-3 pb-2">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-2 pb-0">
       <div
         className={`flex items-center justify-between h-20 px-5 md:px-7 ${
           scrolled ? "shadow-[0_2px_20px_rgba(15,61,46,0.08)]" : ""
         }`}
         style={{ backgroundColor: "#f5ece0", borderRadius: 28 }}
       >
-        {/* Logo on off-white pill so logo background blends nicely */}
+        {/* Logo — transparent PNG/WebP blends directly with beige header */}
         <a href="/#home" className="flex items-center shrink-0">
           <img
             src="/logo.webp"
@@ -73,7 +73,8 @@ export function Navbar() {
             height={72}
             decoding="async"
             fetchPriority="high"
-            className="h-[64px] md:h-[68px] w-auto block"
+            className="h-[56px] md:h-[60px] w-auto block"
+            style={{ background: "transparent" }}
           />
         </a>
 

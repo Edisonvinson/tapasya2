@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { Phone, Mail, Globe } from "lucide-react";
 import { WHATSAPP_BASE } from "@/lib/data";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -14,18 +14,6 @@ export function Contact() {
           </h2>
 
           <ul className="mt-8 space-y-5">
-            <li className="flex gap-4">
-              <MapPin className="shrink-0 mt-1" size={20} strokeWidth={1.5} style={{ color: "#c6a46c" }} />
-              <div>
-                <p className="text-[16px]" style={{ color: "#1a1a1a" }}>
-                  J575+5J7, Valiyakandam, Chelimada,
-                  <br /> Thekkady, Kumily, Kerala 685509
-                </p>
-                <p className="text-[13px] mt-2" style={{ color: "#6b6b66" }}>
-                  250m from Elephant Camp · 850m from Periyar Boat Ticket Counter
-                </p>
-              </div>
-            </li>
             <li>
               <a href="tel:+917511193223" className="flex gap-4 items-center text-[16px] transition" style={{ color: "#1a1a1a" }}>
                 <Phone className="shrink-0" size={20} strokeWidth={1.5} style={{ color: "#c6a46c" }} />

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Search, Calendar } from "lucide-react";
+import { Menu, X, Search, Calendar, Instagram, Facebook } from "lucide-react";
 import { WHATSAPP_BASE } from "@/lib/data";
 
 const BRAND_GREEN = "#00846d";
@@ -54,6 +54,27 @@ export function Navbar() {
             <span className="hidden sm:inline">tapasyawellnessspa@gmail.com</span>
             <span className="sm:hidden">Email</span>
           </a>
+          <span className="hidden sm:inline opacity-50">|</span>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="inline-flex items-center hover:opacity-80 transition"
+            >
+              <Instagram size={15} strokeWidth={1.8} />
+            </a>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="inline-flex items-center hover:opacity-80 transition"
+            >
+              <Facebook size={15} strokeWidth={1.8} />
+            </a>
+          </div>
         </div>
       </div>
       {/* Constrained nav bar matching hero width with rounded edges */}
@@ -73,7 +94,7 @@ export function Navbar() {
             height={96}
             decoding="async"
             fetchPriority="high"
-            className="h-[76px] md:h-[88px] w-auto block"
+            className="h-[92px] md:h-[108px] w-auto block"
             style={{ background: "transparent" }}
           />
         </a>

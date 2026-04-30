@@ -44,6 +44,8 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "preload", as: "image", href: "/logo.webp", fetchpriority: "high" },
+      { rel: "preload", as: "image", href: "/logo-white.webp" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "preconnect", href: "https://www.graymatterdubai.com", crossOrigin: "anonymous" },

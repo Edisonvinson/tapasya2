@@ -79,7 +79,7 @@ export function About() {
               >
                 <Icon size={22} strokeWidth={1.5} />
               </div>
-              <h3 className="font-serif text-[20px] font-semibold mt-5" style={{ color: "#00846d" }}>
+              <h3 className="font-serif text-[20px] font-semibold mt-5" style={{ color: "#0f3d2e" }}>
                 {title}
               </h3>
               <p className="mt-2 text-[14px] leading-[1.65]" style={{ color: "#6b6b66" }}>

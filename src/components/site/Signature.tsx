@@ -24,20 +24,20 @@ function knowMoreHref(name: string) {
 export function Signature() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section className="py-14 md:py-14" style={{ backgroundColor: "#faf7f2" }}>
+    <section className="section-pad" style={{ backgroundColor: "#faf7f2" }}>
       <div ref={ref} className="fade-up max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Our Signature Experiences</span>
-          <h2 className="font-serif text-[28px] md:text-[40px] mt-2 font-bold" style={{ color: "#0e3c2c" }}>
+          <h2 className="font-serif text-[36px] md:text-[52px] mt-4 leading-[1.05] font-bold" style={{ color: "#0f3d2e" }}>
             Step Into Serenity
           </h2>
-          <p className="mt-3 leading-[1.75] text-[17px]" style={{ color: "#1a1a1a" }}>
+          <p className="mt-5 leading-[1.8] text-[16px]" style={{ color: "#6b6b66" }}>
             Signature spa therapies designed to relax the body, restore balance, and elevate your spa
             journey in Kumily.
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-5">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SIGNATURE.map((s) => {
             const d = s.durations;
             const dur = d.length > 1 ? `${d[0].min} / ${d[1].min} Min` : `${d[0].min} Min`;
@@ -48,12 +48,11 @@ export function Signature() {
             return (
               <article
                 key={s.name}
-                className="bg-white group border border-transparent hover:border-gold-light transition-colors rounded-sm overflow-hidden flex flex-col"
-                style={{ boxShadow: "0 2px 12px rgba(14,60,44,0.06)" }}
+                className="card-soft overflow-hidden flex flex-col"
               >
                 <div
                   className="overflow-hidden"
-                  style={{ aspectRatio: "3 / 4", borderRadius: "4px 4px 0 0" }}
+                  style={{ aspectRatio: "4 / 5" }}
                 >
                   <img
                     src={img}
@@ -63,37 +62,39 @@ export function Signature() {
                     style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
                   />
                 </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase font-semibold flex-wrap" style={{ color: "#ab8c4a" }}>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase font-semibold flex-wrap" style={{ color: "#c6a46c" }}>
                     <span>{dur}</span>
-                    <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "#ab8c4a" }} />
-                    <span className="text-[15px] font-bold tracking-normal">{price}</span>
+                    <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "#c6a46c" }} />
+                    <span className="text-[14px] font-bold tracking-normal" style={{ color: "#0f3d2e" }}>{price}</span>
                   </div>
-                  <h3 className="font-serif text-[19px] mt-3 font-semibold" style={{ color: "#0e3c2c" }}>{s.name}</h3>
-                  <p className="mt-2 text-[14px] leading-[1.6] flex-1" style={{ color: "#4a4a3a" }}>{s.desc}</p>
+                  <h3 className="font-serif text-[22px] mt-3 font-semibold leading-[1.2]" style={{ color: "#0f3d2e" }}>{s.name}</h3>
+                  <p className="mt-2 text-[14px] leading-[1.6] flex-1" style={{ color: "#6b6b66" }}>{s.desc}</p>
 
-                  <div className="flex gap-2.5 mt-3.5 flex-wrap">
+                  <div className="flex gap-2 mt-5 flex-wrap">
                     <a
                       href={knowMoreHref(s.name)}
                       className="text-center transition"
                       style={{
                         flex: 1,
                         minWidth: 100,
-                        padding: "9px 14px",
-                        fontSize: 13,
+                        padding: "10px 14px",
+                        fontSize: 12,
                         fontWeight: 600,
-                        borderRadius: 3,
-                        border: "1.5px solid #ab8c4a",
-                        color: "#ab8c4a",
+                        letterSpacing: "0.05em",
+                        textTransform: "uppercase",
+                        borderRadius: 999,
+                        border: "1.5px solid #0f3d2e",
+                        color: "#0f3d2e",
                         background: "transparent",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "#ab8c4a";
+                        e.currentTarget.style.background = "#0f3d2e";
                         e.currentTarget.style.color = "#ffffff";
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.background = "transparent";
-                        e.currentTarget.style.color = "#ab8c4a";
+                        e.currentTarget.style.color = "#0f3d2e";
                       }}
                     >
                       Know More
@@ -106,17 +107,19 @@ export function Signature() {
                       style={{
                         flex: 1,
                         minWidth: 100,
-                        padding: "9px 14px",
-                        fontSize: 13,
+                        padding: "10px 14px",
+                        fontSize: 12,
                         fontWeight: 600,
-                        borderRadius: 3,
-                        background: "#ab8c4a",
+                        letterSpacing: "0.05em",
+                        textTransform: "uppercase",
+                        borderRadius: 999,
+                        background: "#c6a46c",
                         color: "#ffffff",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "#8a6f31")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "#ab8c4a")}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#ab8c4a")}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "#c6a46c")}
                     >
-                      Book Now <ArrowUpRight size={14} />
+                      Book Now <ArrowUpRight size={13} />
                     </a>
                   </div>
                 </div>
@@ -125,11 +128,11 @@ export function Signature() {
           })}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <a
             href="/services"
-            className="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] font-semibold border-b pb-1"
-            style={{ color: "#ab8c4a", borderColor: "#ab8c4a" }}
+            className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.2em] font-semibold border-b pb-1.5"
+            style={{ color: "#c6a46c", borderColor: "#c6a46c" }}
           >
             Explore All Treatments →
           </a>
